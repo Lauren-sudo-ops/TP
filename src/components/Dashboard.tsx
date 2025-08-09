@@ -172,7 +172,7 @@ const Dashboard: React.FC<DashboardProps> = ({ tasks, studyPlans, dailyAvailable
         <div className="bg-green-50 border-l-4 border-green-400 p-4 rounded-lg flex items-center justify-between dark:bg-green-900/20 dark:border-green-700">
           <div>
             <span className="font-semibold text-green-800 dark:text-green-200">Great progress!</span>
-            <span className="ml-2 text-green-700 dark:text-green-100">You've completed {doneCount} study session{doneCount > 1 ? 's' : ''}. Keep up the momentum! 🎉</span>
+            <span className="ml-2 text-green-700 dark:text-green-100">You've completed {doneCount} study session{doneCount > 1 ? 's' : ''}. Keep up the momentum! </span>
           </div>
           <button
             onClick={() => setShowRegeneratePrompt(false)}
@@ -213,71 +213,71 @@ const Dashboard: React.FC<DashboardProps> = ({ tasks, studyPlans, dailyAvailable
         // Much more varied motivational quotes based on progress
         if (avgProgress === 0 && completedTasks.length === 0) {
           const startingQuotes = [
-            { quote: "The secret of getting ahead is getting started.", author: "Mark Twain", emoji: "🚀" },
-            { quote: "A year from now you may wish you had started today.", author: "Karen Lamb", emoji: "⏰" },
-            { quote: "The best time to plant a tree was 20 years ago. The second best time is now.", author: "Chinese Proverb", emoji: "🌱" },
-            { quote: "You don't have to be great to get started, but you have to get started to be great.", author: "Les Brown", emoji: "✨" },
-            { quote: "The journey of a thousand miles begins with one step.", author: "Lao Tzu", emoji: "👣" }
+            { quote: "The secret of getting ahead is getting started.", author: "Mark Twain", emoji: "" },
+            { quote: "A year from now you may wish you had started today.", author: "Karen Lamb", emoji: "" },
+            { quote: "The best time to plant a tree was 20 years ago. The second best time is now.", author: "Chinese Proverb", emoji: "" },
+            { quote: "You don't have to be great to get started, but you have to get started to be great.", author: "Les Brown", emoji: "" },
+            { quote: "The journey of a thousand miles begins with one step.", author: "Lao Tzu", emoji: "" }
           ];
           const selected = startingQuotes[Math.floor(Math.random() * startingQuotes.length)];
           quote = selected.quote; author = selected.author; emoji = selected.emoji;
         } else if (avgProgress < 15) {
           const earlyQuotes = [
-            { quote: "Small steps daily lead to big results yearly.", author: "Unknown", emoji: "🌱" },
-            { quote: "Progress is impossible without change.", author: "George Bernard Shaw", emoji: "🔄" },
-            { quote: "Every expert was once a beginner.", author: "Helen Hayes", emoji: "🔰" },
-            { quote: "Rome wasn't built in a day, but they were laying bricks every hour.", author: "John Heywood", emoji: "🧱" },
-            { quote: "A little progress each day adds up to big results.", author: "Unknown", emoji: "📊" }
+            { quote: "Small steps daily lead to big results yearly.", author: "Unknown", emoji: "" },
+            { quote: "Progress is impossible without change.", author: "George Bernard Shaw", emoji: "" },
+            { quote: "Every expert was once a beginner.", author: "Helen Hayes", emoji: "" },
+            { quote: "Rome wasn't built in a day, but they were laying bricks every hour.", author: "John Heywood", emoji: "" },
+            { quote: "A little progress each day adds up to big results.", author: "Unknown", emoji: "" }
           ];
           const selected = earlyQuotes[Math.floor(Math.random() * earlyQuotes.length)];
           quote = selected.quote; author = selected.author; emoji = selected.emoji;
         } else if (avgProgress < 35) {
           const buildingQuotes = [
-            { quote: "Success is the sum of small efforts repeated day in and day out.", author: "Robert Collier", emoji: "🔥" },
-            { quote: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson", emoji: "⏰" },
-            { quote: "The difference between ordinary and extraordinary is that little extra.", author: "Jimmy Johnson", emoji: "⭐" },
-            { quote: "Momentum is a beautiful thing.", author: "Unknown", emoji: "🌪️" },
-            { quote: "Excellence is not a skill, it's an attitude.", author: "Ralph Marston", emoji: "💎" }
+            { quote: "Success is the sum of small efforts repeated day in and day out.", author: "Robert Collier", emoji: "" },
+            { quote: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson", emoji: "" },
+            { quote: "The difference between ordinary and extraordinary is that little extra.", author: "Jimmy Johnson", emoji: "" },
+            { quote: "Momentum is a beautiful thing.", author: "Unknown", emoji: "" },
+            { quote: "Excellence is not a skill, it's an attitude.", author: "Ralph Marston", emoji: "" }
           ];
           const selected = buildingQuotes[Math.floor(Math.random() * buildingQuotes.length)];
           quote = selected.quote; author = selected.author; emoji = selected.emoji;
         } else if (avgProgress < 60) {
           const momentumQuotes = [
-            { quote: "You're closer than you think. Keep going!", author: "Unknown", emoji: "🎯" },
-            { quote: "The middle is messy, but it's also where the magic happens.", author: "Brené Brown", emoji: "✨" },
-            { quote: "Persistence is the hard work you do after you get tired of doing the hard work you already did.", author: "Newt Gingrich", emoji: "💪" },
-            { quote: "Half the battle is just showing up.", author: "Woody Allen", emoji: "🏃" },
-            { quote: "Progress, not perfection.", author: "Unknown", emoji: "📈" }
+            { quote: "You're closer than you think. Keep going!", author: "Unknown", emoji: "" },
+            { quote: "The middle is messy, but it's also where the magic happens.", author: "Bren Brown", emoji: "" },
+            { quote: "Persistence is the hard work you do after you get tired of doing the hard work you already did.", author: "Newt Gingrich", emoji: "" },
+            { quote: "Half the battle is just showing up.", author: "Woody Allen", emoji: "" },
+            { quote: "Progress, not perfection.", author: "Unknown", emoji: "" }
           ];
           const selected = momentumQuotes[Math.floor(Math.random() * momentumQuotes.length)];
           quote = selected.quote; author = selected.author; emoji = selected.emoji;
         } else if (avgProgress < 85) {
           const pushingQuotes = [
-            { quote: "You're so close! The final push is always the hardest.", author: "Unknown", emoji: "🔋" },
-            { quote: "Champions train, losers complain.", author: "Unknown", emoji: "🏆" },
-            { quote: "The last mile is always the longest.", author: "Unknown", emoji: "🏁" },
-            { quote: "Strong people don't give up, they find a way.", author: "Unknown", emoji: "💎" },
-            { quote: "When you feel like quitting, think about why you started.", author: "Unknown", emoji: "🌟" }
+            { quote: "You're so close! The final push is always the hardest.", author: "Unknown", emoji: "" },
+            { quote: "Champions train, losers complain.", author: "Unknown", emoji: "" },
+            { quote: "The last mile is always the longest.", author: "Unknown", emoji: "" },
+            { quote: "Strong people don't give up, they find a way.", author: "Unknown", emoji: "" },
+            { quote: "When you feel like quitting, think about why you started.", author: "Unknown", emoji: "" }
           ];
           const selected = pushingQuotes[Math.floor(Math.random() * pushingQuotes.length)];
           quote = selected.quote; author = selected.author; emoji = selected.emoji;
         } else if (avgProgress < 100) {
           const almostQuotes = [
-            { quote: "The last 10% separates the good from the great.", author: "Unknown", emoji: "💫" },
-            { quote: "Finishing strong is an art form.", author: "Unknown", emoji: "🎨" },
-            { quote: "You can see the finish line. Sprint!", author: "Unknown", emoji: "🏃‍♂️" },
-            { quote: "Excellence is doing ordinary things extraordinarily well.", author: "John W. Gardner", emoji: "👑" },
-            { quote: "The final stretch is where legends are made.", author: "Unknown", emoji: "⚡" }
+            { quote: "The last 10% separates the good from the great.", author: "Unknown", emoji: "" },
+            { quote: "Finishing strong is an art form.", author: "Unknown", emoji: "" },
+            { quote: "You can see the finish line. Sprint!", author: "Unknown", emoji: "" },
+            { quote: "Excellence is doing ordinary things extraordinarily well.", author: "John W. Gardner", emoji: "" },
+            { quote: "The final stretch is where legends are made.", author: "Unknown", emoji: "" }
           ];
           const selected = almostQuotes[Math.floor(Math.random() * almostQuotes.length)];
           quote = selected.quote; author = selected.author; emoji = selected.emoji;
         } else {
           const completedQuotes = [
-            { quote: "Well done! Success is a journey, not a destination.", author: "Ben Sweetland", emoji: "🏆" },
-            { quote: "The expert in anything was once a beginner.", author: "Helen Hayes", emoji: "🎓" },
-            { quote: "What's next? The best is yet to come!", author: "Unknown", emoji: "🚀" },
-            { quote: "Celebrate your wins, then set new goals.", author: "Unknown", emoji: "🎉" },
-            { quote: "You didn't just complete tasks, you built discipline.", author: "Unknown", emoji: "💪" }
+            { quote: "Well done! Success is a journey, not a destination.", author: "Ben Sweetland", emoji: "" },
+            { quote: "The expert in anything was once a beginner.", author: "Helen Hayes", emoji: "" },
+            { quote: "What's next? The best is yet to come!", author: "Unknown", emoji: "" },
+            { quote: "Celebrate your wins, then set new goals.", author: "Unknown", emoji: "" },
+            { quote: "You didn't just complete tasks, you built discipline.", author: "Unknown", emoji: "" }
           ];
           const selected = completedQuotes[Math.floor(Math.random() * completedQuotes.length)];
           quote = selected.quote; author = selected.author; emoji = selected.emoji;
@@ -294,7 +294,7 @@ const Dashboard: React.FC<DashboardProps> = ({ tasks, studyPlans, dailyAvailable
                   "{quote}"
                 </p>
                 <footer className="text-gray-500 dark:text-gray-400 text-sm">
-                  — {author}
+                   {author}
                 </footer>
               </blockquote>
             </div>
@@ -459,14 +459,14 @@ const Dashboard: React.FC<DashboardProps> = ({ tasks, studyPlans, dailyAvailable
                 <span>Today's Sessions</span>
               </h2>
               <div className="text-center py-8">
-                <div className="text-6xl mb-4">🎉</div>
+                <div className="text-6xl mb-4"></div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-2 dark:text-white">No Work Today!</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  It's your day off! Time to relax, recharge, and maybe catch up on some Netflix. 📺
+                  It's your day off! Time to relax, recharge, and maybe catch up on some Netflix. 
                 </p>
                 <div className="bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900 rounded-lg p-4">
                   <p className="text-sm text-gray-700 dark:text-gray-200">
-                    <span className="font-medium">Pro tip:</span> Use this time to plan your next study session or just enjoy your well-deserved break! ✨
+                    <span className="font-medium">Pro tip:</span> Use this time to plan your next study session or just enjoy your well-deserved break! 
                   </p>
                 </div>
               </div>
@@ -648,10 +648,10 @@ const Dashboard: React.FC<DashboardProps> = ({ tasks, studyPlans, dailyAvailable
                   return session.status !== 'skipped' && !session.done && session.status !== 'completed';
                 }).length === 0 && (
                   <div className="text-center py-8">
-                    <div className="text-4xl mb-4">📚</div>
+                    <div className="text-4xl mb-4"></div>
                     <h3 className="text-xl font-semibold text-gray-800 mb-2 dark:text-white">No Sessions Planned</h3>
                     <p className="text-gray-600 dark:text-gray-300">
-                      You have no study sessions planned for today. Time to generate a study plan! 🚀
+                      You have no study sessions planned for today. Time to generate a study plan! 
                     </p>
                   </div>
                 )}
@@ -664,10 +664,10 @@ const Dashboard: React.FC<DashboardProps> = ({ tasks, studyPlans, dailyAvailable
                 <span>Today's Sessions</span>
               </h2>
               <div className="text-center py-8">
-                <div className="text-4xl mb-4">📚</div>
+                <div className="text-4xl mb-4"></div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-2 dark:text-white">No Sessions Planned</h3>
                 <p className="text-gray-600 dark:text-gray-300">
-                  You have no study sessions planned for today. Time to generate a study plan! 🚀
+                  You have no study sessions planned for today. Time to generate a study plan! 
                 </p>
               </div>
             </div>
@@ -762,7 +762,7 @@ const Dashboard: React.FC<DashboardProps> = ({ tasks, studyPlans, dailyAvailable
                     <div className="text-xs text-gray-500 mt-1 dark:text-gray-400">
                       {remainingHours > 0 ? `${formatTime(remainingHours)} remaining` : 'All hours completed!'}
                       {skippedHours > 0 && (
-                        <span className="text-yellow-600 dark:text-yellow-400"> • {formatTime(skippedHours)} skipped</span>
+                        <span className="text-yellow-600 dark:text-yellow-400">  {formatTime(skippedHours)} skipped</span>
                       )}
                     </div>
                   </div>
@@ -782,7 +782,7 @@ const Dashboard: React.FC<DashboardProps> = ({ tasks, studyPlans, dailyAvailable
                     <div className="text-xs text-gray-500 mt-1 dark:text-gray-400">
                       {totalSessions > 0 ? `${totalSessions - completedSessions.length - skippedSessions.length} sessions remaining` : 'No sessions scheduled'}
                       {skippedSessions.length > 0 && (
-                        <span className="text-yellow-600 dark:text-yellow-400"> • {skippedSessions.length} skipped</span>
+                        <span className="text-yellow-600 dark:text-yellow-400">  {skippedSessions.length} skipped</span>
                       )}
                     </div>
                   </div>

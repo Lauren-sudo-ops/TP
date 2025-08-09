@@ -57,7 +57,7 @@ const GamificationPanel: React.FC<GamificationPanelProps> = ({
             <h3 className="text-xl font-bold text-gray-800 dark:text-white">Level {level.current}</h3>
             <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">{level.title}</p>
           </div>
-          <div className="text-3xl">🏆</div>
+          <div className="text-3xl"></div>
         </div>
         
         <div className="mb-3">
@@ -94,7 +94,7 @@ const GamificationPanel: React.FC<GamificationPanelProps> = ({
             <p className="text-sm text-gray-600 dark:text-gray-400">Longest: {streak.longest} days</p>
           </div>
           <div className="text-right">
-            <div className="text-3xl mb-2">🔥</div>
+            <div className="text-3xl mb-2"></div>
             <p className="text-xs text-gray-600 dark:text-gray-400">Keep it going!</p>
           </div>
         </div>
@@ -345,7 +345,7 @@ const GamificationPanel: React.FC<GamificationPanelProps> = ({
               onClick={onClosePanel}
               className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
             >
-              ✕
+              
             </button>
           )}
         </div>

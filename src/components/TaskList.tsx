@@ -226,7 +226,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onUpdateTask, onDeleteTask, 
 
         {activeTasks.length === 0 ? (
           <div className="text-center py-8">
-            <div className="text-4xl mb-4">📝</div>
+            <div className="text-4xl mb-4"></div>
             <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">No Active Tasks</h3>
             <p className="text-gray-600 dark:text-gray-300">Add your first task to get started!</p>
           </div>
@@ -348,7 +348,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onUpdateTask, onDeleteTask, 
                         {editFormData.isOneTimeTask && (
                           <div className="mt-1 p-2 bg-blue-50 dark:bg-blue-900/20 rounded border-l-2 border-blue-300 dark:border-blue-600">
                             <div className="text-xs text-blue-700 dark:text-blue-300">
-                              💡 One-sitting tasks will be scheduled as single blocks. Work frequency settings won't apply.
+                               One-sitting tasks will be scheduled as single blocks. Work frequency settings won't apply.
                             </div>
                           </div>
                         )}
@@ -365,17 +365,17 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onUpdateTask, onDeleteTask, 
                             onChange={(e) => setEditFormData({ ...editFormData, targetFrequency: e.target.value as any })}
                             className="w-full px-3 py-2 border rounded-lg text-base bg-white dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                           >
-                            <option value="daily">📅 Daily progress - Work a bit each day</option>
-                            <option value="3x-week">🗓️ Few times per week - Every 2-3 days</option>
-                            <option value="weekly">📆 Weekly sessions - Once per week</option>
-                            <option value="flexible">⏰ When I have time - Flexible scheduling</option>
+                            <option value="daily"> Daily progress - Work a bit each day</option>
+                            <option value="3x-week"> Few times per week - Every 2-3 days</option>
+                            <option value="weekly"> Weekly sessions - Once per week</option>
+                            <option value="flexible"> When I have time - Flexible scheduling</option>
                           </select>
 
                           {/* Show warning if frequency conflicts with deadline */}
                           {deadlineConflict.hasConflict && (
                             <div className="mt-2 p-2 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-700 rounded text-xs text-amber-700 dark:text-amber-200">
                               <div className="flex items-start gap-1">
-                                <span className="text-amber-600 dark:text-amber-400">⚠️</span>
+                                <span className="text-amber-600 dark:text-amber-400"></span>
                                 <div>
                                   <div className="font-medium">Frequency preference may not allow completion before deadline</div>
                                   <div className="mt-1">{deadlineConflict.reason}</div>
@@ -577,11 +577,11 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onUpdateTask, onDeleteTask, 
                     {/* Validation errors display */}
                     {!isEditFormValid && editFormData.title && (
                       <div className="text-red-600 text-sm space-y-1">
-                        {!editFormData.title?.trim() && <div>• Task title is required</div>}
-                        {((editFormData.estimatedHours || 0) + ((editFormData.estimatedMinutes || 0) / 60)) <= 0 && <div>• Estimated time must be greater than 0</div>}
-                        {!editFormData.impact && <div>• Priority level is required</div>}
-                        {editFormData.deadline && editFormData.deadline < today && <div>• Deadline cannot be in the past</div>}
-                        {editFormData.category === 'Custom...' && !editFormData.customCategory?.trim() && <div>• Custom category is required</div>}
+                        {!editFormData.title?.trim() && <div> Task title is required</div>}
+                        {((editFormData.estimatedHours || 0) + ((editFormData.estimatedMinutes || 0) / 60)) <= 0 && <div> Estimated time must be greater than 0</div>}
+                        {!editFormData.impact && <div> Priority level is required</div>}
+                        {editFormData.deadline && editFormData.deadline < today && <div> Deadline cannot be in the past</div>}
+                        {editFormData.category === 'Custom...' && !editFormData.customCategory?.trim() && <div> Custom category is required</div>}
                       </div>
                     )}
 
@@ -623,19 +623,19 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onUpdateTask, onDeleteTask, 
                         <div className="space-y-2">
                         {task.subject && (
                             <div className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-300">
-                              <span className="font-medium">📚</span>
+                              <span className="font-medium"></span>
                               <span className="truncate">{task.subject}</span>
                             </div>
                           )}
                           
                           <div className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-300">
-                            <span className="font-medium">⏰</span>
+                            <span className="font-medium"></span>
                             <span>{formatTime(task.estimatedHours)}</span>
                           </div>
                           
                           {task.deadline && (
                             <div className="flex items-center space-x-2 text-sm">
-                              <span className="font-medium">📅</span>
+                              <span className="font-medium"></span>
                               <span className={`${getUrgencyColor(task.deadline)}`}>
                                 Due: {new Date(task.deadline).toLocaleDateString()}
                             </span>
@@ -730,19 +730,19 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onUpdateTask, onDeleteTask, 
                       <div className="space-y-1">
                       {task.subject && (
                           <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
-                            <span className="font-medium">📚</span>
+                            <span className="font-medium"></span>
                             <span className="truncate">{task.subject}</span>
                           </div>
                         )}
                         
                         <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
-                          <span className="font-medium">⏰</span>
+                          <span className="font-medium"></span>
                           <span>{formatTime(task.estimatedHours)}</span>
                         </div>
                         
                         {task.deadline && (
                           <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
-                            <span className="font-medium">📅</span>
+                            <span className="font-medium"></span>
                             <span>Due: {new Date(task.deadline).toLocaleDateString()}</span>
                           </div>
                         )}
@@ -776,7 +776,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onUpdateTask, onDeleteTask, 
                 onClick={() => setShowHelpModal(false)}
                 className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
               >
-                ×
+                
               </button>
             </div>
 

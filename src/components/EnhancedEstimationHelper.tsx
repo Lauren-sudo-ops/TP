@@ -112,7 +112,7 @@ const EnhancedEstimationHelper: React.FC<EnhancedEstimationHelperProps> = ({
           onClick={onClose}
           className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
         >
-          ✕
+          
         </button>
       </div>
 
@@ -301,7 +301,7 @@ const EnhancedEstimationHelper: React.FC<EnhancedEstimationHelperProps> = ({
                 <div className="mb-3 p-2 bg-blue-50 dark:bg-blue-900/20 rounded border border-blue-200 dark:border-blue-700">
                   <div className="text-xs font-medium text-blue-700 dark:text-blue-300 mb-1">Session Plan:</div>
                   <div className="text-xs text-blue-600 dark:text-blue-400">
-                    {suggestion.breakdownSuggestion.sessions} sessions × {formatHours(suggestion.breakdownSuggestion.hoursPerSession)} each
+                    {suggestion.breakdownSuggestion.sessions} sessions  {formatHours(suggestion.breakdownSuggestion.hoursPerSession)} each
                   </div>
                   <div className="text-xs text-blue-500 dark:text-blue-400 mt-1">
                     {suggestion.breakdownSuggestion.reasoning}
@@ -341,10 +341,10 @@ const EnhancedEstimationHelper: React.FC<EnhancedEstimationHelperProps> = ({
 
           {insights.strengths.length > 0 && (
             <div>
-              <h4 className="font-medium text-green-700 dark:text-green-400 mb-2">✓ Strengths</h4>
+              <h4 className="font-medium text-green-700 dark:text-green-400 mb-2"> Strengths</h4>
               <ul className="space-y-1">
                 {insights.strengths.map((strength, index) => (
-                  <li key={index} className="text-sm text-gray-600 dark:text-gray-400">• {strength}</li>
+                  <li key={index} className="text-sm text-gray-600 dark:text-gray-400"> {strength}</li>
                 ))}
               </ul>
             </div>
@@ -352,10 +352,10 @@ const EnhancedEstimationHelper: React.FC<EnhancedEstimationHelperProps> = ({
 
           {insights.weaknesses.length > 0 && (
             <div>
-              <h4 className="font-medium text-orange-700 dark:text-orange-400 mb-2">⚠ Areas to Improve</h4>
+              <h4 className="font-medium text-orange-700 dark:text-orange-400 mb-2"> Areas to Improve</h4>
               <ul className="space-y-1">
                 {insights.weaknesses.map((weakness, index) => (
-                  <li key={index} className="text-sm text-gray-600 dark:text-gray-400">• {weakness}</li>
+                  <li key={index} className="text-sm text-gray-600 dark:text-gray-400"> {weakness}</li>
                 ))}
               </ul>
             </div>
@@ -363,10 +363,10 @@ const EnhancedEstimationHelper: React.FC<EnhancedEstimationHelperProps> = ({
 
           {insights.recommendations.length > 0 && (
             <div>
-              <h4 className="font-medium text-blue-700 dark:text-blue-400 mb-2">💡 Recommendations</h4>
+              <h4 className="font-medium text-blue-700 dark:text-blue-400 mb-2"> Recommendations</h4>
               <ul className="space-y-1">
                 {insights.recommendations.map((rec, index) => (
-                  <li key={index} className="text-sm text-gray-600 dark:text-gray-400">• {rec}</li>
+                  <li key={index} className="text-sm text-gray-600 dark:text-gray-400"> {rec}</li>
                 ))}
               </ul>
             </div>

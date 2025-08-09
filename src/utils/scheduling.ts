@@ -465,7 +465,7 @@ for (const interval of busyIntervals) {
     const endM = (endTime % 60).toString().padStart(2, '0');
     
     if (targetDate) {
-      debugLog(`✓ Found slot: ${startH}:${startM} - ${endH}:${endM}`);
+      debugLog(`Found slot: ${startH}:${startM} - ${endH}:${endM}`);
     }
     
     return { start: `${startH}:${startM}`, end: `${endH}:${endM}` };
@@ -487,14 +487,14 @@ if (finalGap >= requiredMinutes) {
   const endM = (endTime % 60).toString().padStart(2, '0');
   
   if (targetDate) {
-    debugLog(`✓ Found final slot: ${startH}:${startM} - ${endH}:${endM}`);
+    debugLog(`Found final slot: ${startH}:${startM} - ${endH}:${endM}`);
   }
   
   return { start: `${startH}:${startM}`, end: `${endH}:${endM}` };
 }
 
 if (targetDate) {
-  debugLog(`✗ No available slot found for ${requiredHours}h session`);
+  debugLog(`No available slot found for ${requiredHours}h session`);
 }
 
 return null; // No available slot

@@ -51,7 +51,7 @@ const EstimationInsights: React.FC<EstimationInsightsProps> = ({ className = '' 
               <ul className="space-y-1">
                 {insights.strengths.slice(0, 2).map((strength, index) => (
                   <li key={index} className="text-sm text-gray-600 dark:text-gray-400 flex items-start space-x-2">
-                    <span className="text-green-500 mt-1">•</span>
+                    <span className="text-green-500 mt-1"></span>
                     <span>{strength}</span>
                   </li>
                 ))}
@@ -69,7 +69,7 @@ const EstimationInsights: React.FC<EstimationInsightsProps> = ({ className = '' 
               <ul className="space-y-1">
                 {insights.weaknesses.slice(0, 2).map((weakness, index) => (
                   <li key={index} className="text-sm text-gray-600 dark:text-gray-400 flex items-start space-x-2">
-                    <span className="text-orange-500 mt-1">•</span>
+                    <span className="text-orange-500 mt-1"></span>
                     <span>{weakness}</span>
                   </li>
                 ))}

@@ -117,7 +117,7 @@ const TaskInputSimplified: React.FC<TaskInputProps> = ({ onAddTask, onCancel, us
   const getValidationWarnings = (): string[] => {
     const warnings: string[] = [];
     if (isOneSittingTooLong) {
-      warnings.push(`⚠️ This one-sitting task (${estimatedDecimalHours}h) exceeds your daily available hours (${userSettings.dailyAvailableHours}h). Consider reducing the estimated time, increasing your daily hours in settings, or unchecking "one-sitting" to allow splitting.`);
+      warnings.push(` This one-sitting task (${estimatedDecimalHours}h) exceeds your daily available hours (${userSettings.dailyAvailableHours}h). Consider reducing the estimated time, increasing your daily hours in settings, or unchecking "one-sitting" to allow splitting.`);
     }
     return warnings;
   };
@@ -318,7 +318,7 @@ const TaskInputSimplified: React.FC<TaskInputProps> = ({ onAddTask, onCancel, us
             {formData.isOneTimeTask && (
                 <div className="mt-1 p-2 bg-blue-50 dark:bg-blue-900/20 rounded border-l-2 border-blue-300 dark:border-blue-600">
                   <p className="text-xs text-blue-700 dark:text-blue-300">
-                    💡 One-sitting tasks require a deadline and will be scheduled as single blocks.
+                     One-sitting tasks require a deadline and will be scheduled as single blocks.
                   </p>
                 </div>
               )}
@@ -348,7 +348,7 @@ const TaskInputSimplified: React.FC<TaskInputProps> = ({ onAddTask, onCancel, us
                   className="text-violet-600"
                 />
                 <div>
-                  <div className="text-sm font-medium text-gray-800 dark:text-white">🔥 Important</div>
+                  <div className="text-sm font-medium text-gray-800 dark:text-white"> Important</div>
                   <div className="text-xs text-gray-600 dark:text-gray-400">High priority, scheduled first</div>
                 </div>
               </label>
@@ -362,7 +362,7 @@ const TaskInputSimplified: React.FC<TaskInputProps> = ({ onAddTask, onCancel, us
                   className="text-violet-600"
                 />
                 <div>
-                  <div className="text-sm font-medium text-gray-800 dark:text-white">📋 Standard</div>
+                  <div className="text-sm font-medium text-gray-800 dark:text-white"> Standard</div>
                   <div className="text-xs text-gray-600 dark:text-gray-400">Normal priority</div>
                 </div>
               </label>
@@ -380,10 +380,10 @@ const TaskInputSimplified: React.FC<TaskInputProps> = ({ onAddTask, onCancel, us
       onChange={e => setFormData(f => ({ ...f, targetFrequency: e.target.value as any }))}
       className="w-full px-4 py-3 border border-white/30 dark:border-white/20 rounded-xl text-sm bg-white/70 dark:bg-black/20 dark:text-white focus:ring-2 focus:ring-violet-500 focus:border-transparent"
     >
-      <option value="daily">📅 Daily progress - Work a bit each day</option>
-      <option value="3x-week">🗓️ Few times per week - Every 2-3 days</option>
-      <option value="weekly">📆 Weekly sessions - Once per week</option>
-      <option value="flexible">⏰ When I have time - Flexible scheduling</option>
+      <option value="daily"> Daily progress - Work a bit each day</option>
+      <option value="3x-week"> Few times per week - Every 2-3 days</option>
+      <option value="weekly"> Weekly sessions - Once per week</option>
+      <option value="flexible"> When I have time - Flexible scheduling</option>
     </select>
   </div>
 )}
@@ -554,7 +554,7 @@ const TaskInputSimplified: React.FC<TaskInputProps> = ({ onAddTask, onCancel, us
               <ul className="text-red-700 dark:text-red-300 text-sm space-y-1">
                 {getValidationErrors().map((error, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <span className="text-red-500 mt-0.5">•</span>
+                    <span className="text-red-500 mt-0.5"></span>
                     <span>{error}</span>
                   </li>
                 ))}
@@ -565,11 +565,11 @@ const TaskInputSimplified: React.FC<TaskInputProps> = ({ onAddTask, onCancel, us
           {/* Validation Warnings */}
           {getValidationWarnings().length > 0 && (
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mt-2 dark:bg-yellow-900/20 dark:border-yellow-700">
-              <div className="text-yellow-800 dark:text-yellow-200 font-medium mb-2">⚠️ Warnings:</div>
+              <div className="text-yellow-800 dark:text-yellow-200 font-medium mb-2"> Warnings:</div>
               <ul className="text-yellow-700 dark:text-yellow-300 text-sm space-y-1">
                 {getValidationWarnings().map((warning, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <span className="text-yellow-500 mt-0.5">•</span>
+                    <span className="text-yellow-500 mt-0.5"></span>
                     <span>{warning}</span>
                   </li>
                 ))}
@@ -624,21 +624,21 @@ const TaskInputSimplified: React.FC<TaskInputProps> = ({ onAddTask, onCancel, us
                   onClick={() => setShowHelpModal(false)}
                   className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
                 >
-                  ×
+                  
                 </button>
               </div>
               <div className="space-y-4 text-sm text-gray-600 dark:text-gray-300">
                 <div>
-                  <div className="font-medium text-gray-800 dark:text-white mb-1">🔥 Important Tasks</div>
+                  <div className="font-medium text-gray-800 dark:text-white mb-1"> Important Tasks</div>
                   <p>High-priority tasks that get scheduled first and have preference for optimal time slots. Use for deadlines, critical work, or tasks with significant impact.</p>
                 </div>
                 <div>
-                  <div className="font-medium text-gray-800 dark:text-white mb-1">📋 Standard Tasks</div>
+                  <div className="font-medium text-gray-800 dark:text-white mb-1"> Standard Tasks</div>
                   <p>Regular tasks that are scheduled in remaining available time. Use for routine work, maintenance tasks, or less time-sensitive activities.</p>
                 </div>
                 <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                   <p className="text-xs text-blue-700 dark:text-blue-300">
-                    💡 <strong>Tip:</strong> Important tasks with deadlines get maximum scheduling priority, while standard tasks are distributed in available time slots.
+                     <strong>Tip:</strong> Important tasks with deadlines get maximum scheduling priority, while standard tasks are distributed in available time slots.
                   </p>
                 </div>
               </div>

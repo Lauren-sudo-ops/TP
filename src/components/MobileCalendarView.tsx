@@ -349,7 +349,7 @@ const MobileCalendarView: React.FC<MobileCalendarViewProps> = ({
                   >
                     <div className="font-bold">{event.title}</div>
                     <div className="text-xs opacity-90">
-                      All day • {event.resource.data.location ? `${event.resource.data.location} • ` : ''}
+                      All day  {event.resource.data.location ? `${event.resource.data.location}  ` : ''}
                       {event.resource.type === 'commitment' ? event.resource.data.category : 'Study Session'}
                     </div>
                   </div>

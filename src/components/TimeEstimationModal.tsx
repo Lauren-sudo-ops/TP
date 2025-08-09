@@ -81,13 +81,13 @@ const TimeEstimationModal: React.FC<TimeEstimationModalProps> = ({
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             >
               <option value="">Select task type...</option>
-              <option value="Writing">📝 Writing</option>
-              <option value="Learning">📚 Learning</option>
-              <option value="Planning">📋 Planning</option>
-              <option value="Creating">🎨 Creating</option>
-              <option value="Deep Focus Work">🧠 Deep Focus Work</option>
-              <option value="Administrative">📄 Administrative</option>
-              <option value="Communicating">💬 Communicating</option>
+              <option value="Writing"> Writing</option>
+              <option value="Learning"> Learning</option>
+              <option value="Planning"> Planning</option>
+              <option value="Creating"> Creating</option>
+              <option value="Deep Focus Work"> Deep Focus Work</option>
+              <option value="Administrative"> Administrative</option>
+              <option value="Communicating"> Communicating</option>
             </select>
           </div>
 

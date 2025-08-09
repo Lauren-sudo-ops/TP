@@ -287,7 +287,7 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
   const getValidationWarnings = () => {
     const warnings = [];
     if (isOneSittingTooLong) {
-      warnings.push(`⚠️ This one-sitting task (${totalTime}h) exceeds your daily available hours (${userSettings.dailyAvailableHours}h). Consider reducing the estimated time, increasing your daily hours in settings, or unchecking "one-sitting" to allow splitting.`);
+      warnings.push(` This one-sitting task (${totalTime}h) exceeds your daily available hours (${userSettings.dailyAvailableHours}h). Consider reducing the estimated time, increasing your daily hours in settings, or unchecking "one-sitting" to allow splitting.`);
     }
     return warnings;
   };
@@ -429,7 +429,7 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
               {formData.isOneTimeTask && (
                 <div className="mt-1 p-2 bg-blue-50 dark:bg-blue-900/20 rounded border-l-2 border-blue-300 dark:border-blue-600">
                   <div className="text-xs text-blue-700 dark:text-blue-300">
-                    💡 One-sitting tasks will be scheduled as single blocks. Work frequency settings won't apply.
+                     One-sitting tasks will be scheduled as single blocks. Work frequency settings won't apply.
                   </div>
                 </div>
               )}
@@ -443,10 +443,10 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
                 </label>
                 <div className="grid grid-cols-2 gap-2">
                   {[
-                    { value: 'daily', label: '📅 Daily progress', desc: 'Work a bit each day' },
-                    { value: '3x-week', label: '🗓️ Few times per week', desc: 'Every 2-3 days' },
-                    { value: 'weekly', label: '📆 Weekly sessions', desc: 'Once per week' },
-                    { value: 'flexible', label: '⏰ When I have time', desc: 'Flexible scheduling' }
+                    { value: 'daily', label: ' Daily progress', desc: 'Work a bit each day' },
+                    { value: '3x-week', label: ' Few times per week', desc: 'Every 2-3 days' },
+                    { value: 'weekly', label: ' Weekly sessions', desc: 'Once per week' },
+                    { value: 'flexible', label: ' When I have time', desc: 'Flexible scheduling' }
                   ].map(option => (
                     <label key={option.value} className={`flex flex-col p-3 border border-gray-200 dark:border-gray-600 rounded-xl hover:bg-white dark:hover:bg-gray-700 cursor-pointer transition-colors ${
                       formData.targetFrequency === option.value ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-300 dark:border-blue-600' : ''
@@ -468,7 +468,7 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
                 {deadlineConflict.hasConflict && (
                   <div className="mt-2 p-2 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-700 rounded text-xs text-amber-700 dark:text-amber-200">
                     <div className="flex items-start gap-1">
-                      <span className="text-amber-600 dark:text-amber-400">⚠️</span>
+                      <span className="text-amber-600 dark:text-amber-400"></span>
                       <div>
                         <div className="font-medium">Frequency preference may not allow completion before deadline</div>
                         <div className="mt-1">{deadlineConflict.reason}</div>
@@ -590,7 +590,7 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
                       {deadlineConflict.hasConflict && (
                         <div className="mt-2 p-2 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-700 rounded text-xs text-amber-700 dark:text-amber-200">
                           <div className="flex items-start gap-1">
-                            <span className="text-amber-600 dark:text-amber-400">⚠️</span>
+                            <span className="text-amber-600 dark:text-amber-400"></span>
                             <div>
                               <div className="font-medium">Frequency preference may not allow completion before deadline</div>
                               <div className="mt-1">{deadlineConflict.reason}</div>
@@ -803,7 +803,7 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
             className="text-blue-600 font-medium underline focus:outline-none mb-2"
             onClick={() => setShowMoreOptions(v => !v)}
           >
-            {showMoreOptions ? 'Hide More Options' : '▼ More Options'}
+            {showMoreOptions ? 'Hide More Options' : ' More Options'}
           </button>
           {showMoreOptions && (
             <div className="space-y-4 transition-all">
@@ -948,7 +948,7 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
                 onClick={() => setShowHelpModal(false)}
                 className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
               >
-                ×
+                
               </button>
             </div>
 
@@ -1039,14 +1039,14 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
                 onClick={() => setShowImportanceHelpModal(false)}
                 className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 text-2xl"
               >
-                ×
+                
               </button>
             </div>
 
             <div className="space-y-6 text-sm text-gray-600 dark:text-gray-300">
               {/* Overview */}
               <div className="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg">
-                <h4 className="font-semibold text-blue-800 dark:text-blue-200 mb-2">🎯 Quick Summary</h4>
+                <h4 className="font-semibold text-blue-800 dark:text-blue-200 mb-2"> Quick Summary</h4>
                 <p className="text-blue-700 dark:text-blue-300">
                   Task importance determines scheduling priority. <strong>High impact tasks</strong> are always scheduled first, 
                   while <strong>low impact tasks</strong> fill remaining time slots and may be postponed if your schedule becomes tight.
@@ -1055,7 +1055,7 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
 
               {/* Scheduling Priority System */}
               <div>
-                <h4 className="font-semibold text-gray-800 dark:text-white mb-3">📊 Scheduling Priority Order</h4>
+                <h4 className="font-semibold text-gray-800 dark:text-white mb-3"> Scheduling Priority Order</h4>
                 <div className="space-y-3">
                   <div className="bg-red-50 dark:bg-red-900/30 p-3 rounded-lg border-l-4 border-red-500">
                     <div className="flex items-center gap-2 mb-1">
@@ -1093,7 +1093,7 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
 
               {/* How Settings Affect Scheduling */}
               <div>
-                <h4 className="font-semibold text-gray-800 dark:text-white mb-3">⚙️ How Your Settings Interact with Importance</h4>
+                <h4 className="font-semibold text-gray-800 dark:text-white mb-3"> How Your Settings Interact with Importance</h4>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-3">
                     <div className="bg-green-50 dark:bg-green-900/30 p-3 rounded-lg">
@@ -1125,25 +1125,25 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
 
               {/* One-Time Tasks */}
               <div>
-                <h4 className="font-semibold text-gray-800 dark:text-white mb-3">⏱️ One-Time Tasks & Importance</h4>
+                <h4 className="font-semibold text-gray-800 dark:text-white mb-3"> One-Time Tasks & Importance</h4>
                 <div className="space-y-3">
                   <div className="bg-amber-50 dark:bg-amber-900/30 p-3 rounded-lg">
                     <h5 className="font-medium text-amber-800 dark:text-amber-200 mb-2">High Impact One-Time Tasks</h5>
                     <ul className="text-sm space-y-1">
-                      <li>• Scheduled as early as possible for maximum priority</li>
-                      <li>• Get the best available time slots</li>
-                      <li>• Protected from being moved or interrupted</li>
-                      <li>• Example: Important presentation, critical exam</li>
+                      <li> Scheduled as early as possible for maximum priority</li>
+                      <li> Get the best available time slots</li>
+                      <li> Protected from being moved or interrupted</li>
+                      <li> Example: Important presentation, critical exam</li>
                     </ul>
                   </div>
                   
                   <div className="bg-gray-50 dark:bg-gray-700/30 p-3 rounded-lg">
                     <h5 className="font-medium text-gray-800 dark:text-gray-200 mb-2">Low Impact One-Time Tasks</h5>
                     <ul className="text-sm space-y-1">
-                      <li>• Scheduled on deadline day (respecting buffer days)</li>
-                      <li>• May be moved to accommodate higher priority tasks</li>
-                      <li>• Placed in less optimal time slots if needed</li>
-                      <li>• Example: Routine administrative tasks, optional activities</li>
+                      <li> Scheduled on deadline day (respecting buffer days)</li>
+                      <li> May be moved to accommodate higher priority tasks</li>
+                      <li> Placed in less optimal time slots if needed</li>
+                      <li> Example: Routine administrative tasks, optional activities</li>
                     </ul>
                   </div>
                 </div>
@@ -1151,10 +1151,10 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
 
               {/* Examples */}
               <div>
-                <h4 className="font-semibold text-gray-800 dark:text-white mb-3">💡 Real-World Examples</h4>
+                <h4 className="font-semibold text-gray-800 dark:text-white mb-3"> Real-World Examples</h4>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <h5 className="font-medium text-red-600 dark:text-red-400 mb-2">🔥 High Impact Tasks</h5>
+                    <h5 className="font-medium text-red-600 dark:text-red-400 mb-2"> High Impact Tasks</h5>
                     <ul className="text-sm space-y-1 list-disc list-inside">
                       <li>Final exam preparation</li>
                       <li>Job interview preparation</li>
@@ -1167,7 +1167,7 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
                   </div>
                   
                   <div>
-                    <h5 className="font-medium text-gray-600 dark:text-gray-400 mb-2">📝 Low Impact Tasks</h5>
+                    <h5 className="font-medium text-gray-600 dark:text-gray-400 mb-2"> Low Impact Tasks</h5>
                     <ul className="text-sm space-y-1 list-disc list-inside">
                       <li>Regular homework assignments</li>
                       <li>Routine reading</li>
@@ -1183,33 +1183,33 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
 
               {/* Do's and Don'ts */}
               <div>
-                <h4 className="font-semibold text-gray-800 dark:text-white mb-3">✅❌ Do's and Don'ts</h4>
+                <h4 className="font-semibold text-gray-800 dark:text-white mb-3"> Do's and Don'ts</h4>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="bg-green-50 dark:bg-green-900/30 p-4 rounded-lg">
                     <h5 className="font-medium text-green-800 dark:text-green-200 mb-2 flex items-center gap-2">
-                      <span>✅</span> Do
+                      <span></span> Do
                     </h5>
                     <ul className="text-sm space-y-2">
-                      <li>• Mark tasks as high impact if failure significantly affects your goals</li>
-                      <li>• Consider long-term consequences, not just immediate effort</li>
-                      <li>• Use high impact for tasks with cascading effects</li>
-                      <li>• Be honest about what truly matters to your success</li>
-                      <li>• Mark career-defining or grade-critical tasks as high impact</li>
-                      <li>• Consider high impact for tasks that unlock future opportunities</li>
+                      <li> Mark tasks as high impact if failure significantly affects your goals</li>
+                      <li> Consider long-term consequences, not just immediate effort</li>
+                      <li> Use high impact for tasks with cascading effects</li>
+                      <li> Be honest about what truly matters to your success</li>
+                      <li> Mark career-defining or grade-critical tasks as high impact</li>
+                      <li> Consider high impact for tasks that unlock future opportunities</li>
                     </ul>
                   </div>
                   
                   <div className="bg-red-50 dark:bg-red-900/30 p-4 rounded-lg">
                     <h5 className="font-medium text-red-800 dark:text-red-200 mb-2 flex items-center gap-2">
-                      <span>❌</span> Don't
+                      <span></span> Don't
                     </h5>
                     <ul className="text-sm space-y-2">
-                      <li>• Mark everything as high impact (dilutes the system)</li>
-                      <li>• Base importance solely on difficulty or time required</li>
-                      <li>• Use high impact for tasks you simply prefer to do first</li>
-                      <li>• Confuse urgency with importance</li>
-                      <li>• Mark routine/repeatable tasks as high impact</li>
-                      <li>• Let emotions override objective importance assessment</li>
+                      <li> Mark everything as high impact (dilutes the system)</li>
+                      <li> Base importance solely on difficulty or time required</li>
+                      <li> Use high impact for tasks you simply prefer to do first</li>
+                      <li> Confuse urgency with importance</li>
+                      <li> Mark routine/repeatable tasks as high impact</li>
+                      <li> Let emotions override objective importance assessment</li>
                     </ul>
                   </div>
                 </div>
@@ -1217,7 +1217,7 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
 
               {/* Warning Scenarios */}
               <div className="bg-yellow-50 dark:bg-yellow-900/30 p-4 rounded-lg border border-yellow-200 dark:border-yellow-800">
-                <h4 className="font-semibold text-yellow-800 dark:text-yellow-200 mb-2">⚠️ What Happens When Schedule Gets Tight</h4>
+                <h4 className="font-semibold text-yellow-800 dark:text-yellow-200 mb-2"> What Happens When Schedule Gets Tight</h4>
                 <div className="space-y-2 text-sm">
                   <p><strong>High Impact Tasks:</strong> Always protected and scheduled, even if it means working longer hours or rearranging other commitments.</p>
                   <p><strong>Low Impact Tasks:</strong> May be postponed, have reduced session frequency, or be moved to less optimal time slots to make room for high-priority items.</p>
@@ -1227,7 +1227,7 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
 
               {/* Quick Decision Guide */}
               <div className="bg-indigo-50 dark:bg-indigo-900/30 p-4 rounded-lg">
-                <h4 className="font-semibold text-indigo-800 dark:text-indigo-200 mb-3">🤔 Quick Decision Guide</h4>
+                <h4 className="font-semibold text-indigo-800 dark:text-indigo-200 mb-3"> Quick Decision Guide</h4>
                 <div className="text-sm">
                   <p className="mb-2"><strong>Ask yourself:</strong></p>
                   <ul className="space-y-1 list-disc list-inside">

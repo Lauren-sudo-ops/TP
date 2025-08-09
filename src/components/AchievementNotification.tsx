@@ -165,7 +165,7 @@ const AchievementNotification: React.FC<AchievementNotificationProps> = ({
           {/* Celebration message */}
           <div className="mt-4 p-3 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-lg border border-green-200 dark:border-green-700">
             <p className="text-sm text-green-700 dark:text-green-300 font-medium text-center">
-              🎉 Awesome work! Keep up the great progress! 🎉
+               Awesome work! Keep up the great progress! 
             </p>
           </div>
         </div>
