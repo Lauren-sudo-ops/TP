@@ -196,7 +196,7 @@ const StudyTimer: React.FC<StudyTimerProps> = ({
             </h2>
             {currentSession && (
               <p className="text-sm text-gray-600 dark:text-gray-300">
-                Session {currentSession.sessionNumber} • {formatTimeForTimer(currentSession.allocatedHours)}
+                Session {currentSession.sessionNumber}  {formatTimeForTimer(currentSession.allocatedHours)}
               </p>
             )}
           </div>
@@ -333,7 +333,7 @@ const StudyTimer: React.FC<StudyTimerProps> = ({
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white dark:bg-gray-900 rounded-xl shadow-xl p-6 max-w-md w-full">
             <div className="text-center mb-6">
-              <div className="text-6xl mb-4">🎉</div>
+              <div className="text-6xl mb-4"></div>
               <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
                 Session Complete!
               </h3>

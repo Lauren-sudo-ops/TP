@@ -175,7 +175,7 @@ const CommitmentsList: React.FC<CommitmentsListProps> = ({
           <div className="text-center py-8">
             {commitments.length === 0 ? (
               <div>
-                <div className="text-4xl mb-4">📅</div>
+                <div className="text-4xl mb-4"></div>
                 <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
                   No Commitments Yet
                 </h3>
@@ -185,7 +185,7 @@ const CommitmentsList: React.FC<CommitmentsListProps> = ({
               </div>
             ) : (
               <div>
-                <div className="text-4xl mb-4">🔍</div>
+                <div className="text-4xl mb-4"></div>
                 <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
                   No Matching Commitments
                 </h3>
@@ -224,19 +224,19 @@ const CommitmentsList: React.FC<CommitmentsListProps> = ({
                   <div className="space-y-2">
                     {commitment.isAllDay ? (
                       <div className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-300">
-                        <span className="font-medium">⏰</span>
+                        <span className="font-medium"></span>
                         <span>All Day</span>
                       </div>
                     ) : (
                       <div className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-300">
-                        <span className="font-medium">⏰</span>
+                        <span className="font-medium"></span>
                         <span>
                           {commitment.startTime} - {commitment.endTime}
                         </span>
                       </div>
                     )}
                     <div className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-300">
-                      <span className="font-medium">📅</span>
+                      <span className="font-medium"></span>
                       <span className="truncate">
                         {commitment.recurring
                           ? commitment.daysOfWeek
@@ -249,19 +249,19 @@ const CommitmentsList: React.FC<CommitmentsListProps> = ({
                     </div>
                     {commitment.location && (
                       <div className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-300">
-                        <span className="font-medium">📍</span>
+                        <span className="font-medium"></span>
                         <span className="truncate">{commitment.location}</span>
                       </div>
                     )}
                     {commitment.description && (
                       <div className="flex items-start space-x-2 text-sm text-gray-600 dark:text-gray-300">
-                        <span className="font-medium mt-0.5">📝</span>
+                        <span className="font-medium mt-0.5"></span>
                         <span className="flex-1">{commitment.description}</span>
                       </div>
                     )}
                     {commitment.dateRange?.startDate && commitment.dateRange?.endDate && (
                       <div className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-300">
-                        <span className="font-medium">📊</span>
+                        <span className="font-medium"></span>
                         <span className="truncate">
                           {new Date(commitment.dateRange.startDate).toLocaleDateString()} -{' '}
                           {new Date(commitment.dateRange.endDate).toLocaleDateString()}

@@ -18,7 +18,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: 'streak_3',
     title: 'Getting Started',
     description: 'Study for 3 days in a row',
-    icon: '🔥',
+    icon: '',
     category: 'streak',
     condition: { type: 'study_streak', target: 3 },
     rarity: 'common',
@@ -28,7 +28,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: 'streak_7',
     title: 'Week Warrior',
     description: 'Study for 7 days in a row',
-    icon: '🔥',
+    icon: '',
     category: 'streak',
     condition: { type: 'study_streak', target: 7 },
     rarity: 'rare',
@@ -38,7 +38,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: 'streak_30',
     title: 'Study Master',
     description: 'Study for 30 days in a row',
-    icon: '🔥',
+    icon: '',
     category: 'streak',
     condition: { type: 'study_streak', target: 30 },
     rarity: 'epic',
@@ -48,7 +48,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: 'streak_100',
     title: 'Unstoppable Force',
     description: 'Study for 100 days in a row',
-    icon: '🔥',
+    icon: '',
     category: 'streak',
     condition: { type: 'study_streak', target: 100 },
     rarity: 'legendary',
@@ -60,7 +60,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: 'hours_10',
     title: 'First Steps',
     description: 'Complete 10 hours of study',
-    icon: '⏰',
+    icon: '',
     category: 'milestone',
     condition: { type: 'total_hours', target: 10 },
     rarity: 'common',
@@ -70,7 +70,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: 'hours_50',
     title: 'Dedicated Learner',
     description: 'Complete 50 hours of study',
-    icon: '📚',
+    icon: '',
     category: 'milestone',
     condition: { type: 'total_hours', target: 50 },
     rarity: 'rare',
@@ -80,7 +80,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: 'hours_100',
     title: 'Study Champion',
     description: 'Complete 100 hours of study',
-    icon: '🏆',
+    icon: '',
     category: 'milestone',
     condition: { type: 'total_hours', target: 100 },
     rarity: 'epic',
@@ -90,7 +90,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: 'hours_500',
     title: 'Knowledge Seeker',
     description: 'Complete 500 hours of study',
-    icon: '🌟',
+    icon: '',
     category: 'milestone',
     condition: { type: 'total_hours', target: 500 },
     rarity: 'legendary',
@@ -102,7 +102,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: 'tasks_5',
     title: 'Task Tackler',
     description: 'Complete 5 tasks',
-    icon: '✅',
+    icon: '',
     category: 'milestone',
     condition: { type: 'tasks_completed', target: 5 },
     rarity: 'common',
@@ -112,7 +112,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: 'tasks_25',
     title: 'Goal Getter',
     description: 'Complete 25 tasks',
-    icon: '🎯',
+    icon: '',
     category: 'milestone',
     condition: { type: 'tasks_completed', target: 25 },
     rarity: 'rare',
@@ -122,7 +122,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: 'tasks_100',
     title: 'Achievement Unlocked',
     description: 'Complete 100 tasks',
-    icon: '🏅',
+    icon: '',
     category: 'milestone',
     condition: { type: 'tasks_completed', target: 100 },
     rarity: 'epic',
@@ -134,7 +134,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: 'perfect_week',
     title: 'Perfect Week',
     description: 'Complete all planned sessions for a week',
-    icon: '💯',
+    icon: '',
     category: 'efficiency',
     condition: { type: 'perfect_week', target: 1, timeframe: 'weekly' },
     rarity: 'rare',
@@ -144,7 +144,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: 'early_finisher',
     title: 'Ahead of Schedule',
     description: 'Complete 10 tasks before their deadline',
-    icon: '⚡',
+    icon: '',
     category: 'efficiency',
     condition: { type: 'early_finisher', target: 10 },
     rarity: 'rare',
@@ -154,7 +154,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: 'early_bird',
     title: 'Early Bird',
     description: 'Start studying before 7 AM for 7 days',
-    icon: '🌅',
+    icon: '',
     category: 'special',
     condition: { type: 'early_bird', target: 7 },
     rarity: 'rare',
@@ -164,7 +164,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: 'night_owl',
     title: 'Night Owl',
     description: 'Study after 9 PM for 7 days',
-    icon: '🦉',
+    icon: '',
     category: 'special',
     condition: { type: 'night_owl', target: 7 },
     rarity: 'rare',
@@ -174,7 +174,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: 'efficiency_master',
     title: 'Efficiency Master',
     description: 'Maintain 90%+ efficiency for 2 weeks',
-    icon: '⚙️',
+    icon: '',
     category: 'efficiency',
     condition: { type: 'efficiency_master', target: 90 },
     rarity: 'epic',
@@ -317,7 +317,7 @@ export function generateDailyChallenge(stats: UserStats): DailyChallenge {
       id: 'study_2_hours',
       title: 'Study Session',
       description: 'Study for 2 hours today',
-      icon: '📚',
+      icon: '',
       target: 2,
       points: 30,
       type: 'study_hours' as const
@@ -326,7 +326,7 @@ export function generateDailyChallenge(stats: UserStats): DailyChallenge {
       id: 'complete_3_tasks',
       title: 'Task Master',
       description: 'Complete 3 study sessions today',
-      icon: '✅',
+      icon: '',
       target: 3,
       points: 40,
       type: 'complete_tasks' as const
@@ -335,7 +335,7 @@ export function generateDailyChallenge(stats: UserStats): DailyChallenge {
       id: 'use_timer',
       title: 'Focused Study',
       description: 'Use the timer for all sessions today',
-      icon: '⏱️',
+      icon: '',
       target: 1,
       points: 25,
       type: 'use_timer' as const
@@ -344,7 +344,7 @@ export function generateDailyChallenge(stats: UserStats): DailyChallenge {
       id: 'early_start',
       title: 'Early Bird',
       description: 'Start your first session before 9 AM',
-      icon: '🌅',
+      icon: '',
       target: 1,
       points: 35,
       type: 'early_start' as const
@@ -367,35 +367,35 @@ export function getMotivationalMessage(context: string, stats: UserStats): Motiv
     streak_continue: [
       {
         id: 'streak_1',
-        message: `Amazing! You're on a ${stats.currentStreak}-day streak! Keep the momentum going! 🔥`,
+        message: `Amazing! You're on a ${stats.currentStreak}-day streak! Keep the momentum going! `,
         type: 'encouragement',
         context: 'streak_continue',
-        icon: '🔥'
+        icon: ''
       }
     ],
     study_start: [
       {
         id: 'start_1',
-        message: "Every expert was once a beginner. You've got this! 💪",
+        message: "Every expert was once a beginner. You've got this! ",
         type: 'encouragement',
         context: 'study_start',
-        icon: '💪'
+        icon: ''
       },
       {
         id: 'start_2',
-        message: "Focus is your superpower. Time to unleash it! ⚡",
+        message: "Focus is your superpower. Time to unleash it! ",
         type: 'encouragement',
         context: 'study_start',
-        icon: '⚡'
+        icon: ''
       }
     ],
     study_complete: [
       {
         id: 'complete_1',
-        message: "Session complete! You're building great habits! 🎉",
+        message: "Session complete! You're building great habits! ",
         type: 'celebration',
         context: 'study_complete',
-        icon: '🎉'
+        icon: ''
       }
     ]
   };

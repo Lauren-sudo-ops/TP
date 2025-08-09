@@ -429,7 +429,7 @@ const FixedCommitmentInput: React.FC<FixedCommitmentInputProps> = ({ onAddCommit
                           className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 font-bold text-lg leading-none"
                           title="Remove this date"
                         >
-                          ×
+                          
                         </button>
                       </div>
                     ))}

@@ -396,10 +396,10 @@ const StudyPlanView: React.FC<StudyPlanViewProps> = ({ studyPlans, tasks, fixedC
               <>
                 <p>You have missed study sessions. Available actions:</p>
                 <ul className="mt-2 space-y-1">
-                  <li>• <strong>Skip</strong> any missed session (marks as completed)</li>
-                  <li>• <strong>Start studying</strong> any missed session now</li>
+                  <li> <strong>Skip</strong> any missed session (marks as completed)</li>
+                  <li> <strong>Start studying</strong> any missed session now</li>
                   {missedSessions.length > 0 && (
-                    <li>• <strong>Regenerate Study Plan</strong> creates a new study plan</li>
+                    <li> <strong>Regenerate Study Plan</strong> creates a new study plan</li>
                   )}
                   {overdueMissedSessions.length > 0 && (
                     <>
@@ -661,7 +661,7 @@ const StudyPlanView: React.FC<StudyPlanViewProps> = ({ studyPlans, tasks, fixedC
         <div className="mb-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg dark:bg-yellow-900/20 dark:border-yellow-800">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-sm font-medium text-yellow-800 dark:text-yellow-200">🧪 Testing Mode</h3>
+              <h3 className="text-sm font-medium text-yellow-800 dark:text-yellow-200"> Testing Mode</h3>
               <p className="text-xs text-yellow-600 dark:text-yellow-300 mt-1">
                 Click to create test data with missed sessions to test the enhanced redistribution system
               </p>
@@ -768,8 +768,8 @@ const StudyPlanView: React.FC<StudyPlanViewProps> = ({ studyPlans, tasks, fixedC
                     <strong>Choose an option:</strong>
                   </p>
                   <ul className="text-sm text-yellow-700 dark:text-yellow-300 mt-1 space-y-1">
-                    <li>• <strong>Preserve reschedules:</strong> Keep your manual changes and optimize around them</li>
-                    <li>• <strong>Start fresh:</strong> Reset all sessions to optimally calculated times</li>
+                    <li> <strong>Preserve reschedules:</strong> Keep your manual changes and optimize around them</li>
+                    <li> <strong>Start fresh:</strong> Reset all sessions to optimally calculated times</li>
                   </ul>
                 </div>
               </div>
@@ -823,14 +823,14 @@ const StudyPlanView: React.FC<StudyPlanViewProps> = ({ studyPlans, tasks, fixedC
             <h2 className="text-xl font-semibold text-gray-800 ml-2 dark:text-white">Today's Sessions</h2>
           </div>
           <div className="text-center py-8">
-            <div className="text-6xl mb-4">🎉</div>
+            <div className="text-6xl mb-4"></div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2 dark:text-white">No Work Today!</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
-              It's your day off! Time to relax, recharge, and maybe catch up on some Netflix. 🎮
+              It's your day off! Time to relax, recharge, and maybe catch up on some Netflix. 
             </p>
             <div className="bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900 rounded-lg p-4">
               <p className="text-sm text-gray-700 dark:text-gray-200">
-                <span className="font-medium">Pro tip:</span> Use this time to plan your next study session or just enjoy your well-deserved break! ✨
+                <span className="font-medium">Pro tip:</span> Use this time to plan your next study session or just enjoy your well-deserved break! 
               </p>
             </div>
           </div>
@@ -904,7 +904,7 @@ const StudyPlanView: React.FC<StudyPlanViewProps> = ({ studyPlans, tasks, fixedC
                       <div>
                         <p className="text-sm font-medium text-gray-800 dark:text-white">{suggestion.message}</p>
                         {suggestion.action && (
-                          <p className="text-xs text-gray-600 mt-1 dark:text-gray-300">💡 {suggestion.action}</p>
+                          <p className="text-xs text-gray-600 mt-1 dark:text-gray-300"> {suggestion.action}</p>
                         )}
                       </div>
                     </div>
@@ -1092,10 +1092,10 @@ const StudyPlanView: React.FC<StudyPlanViewProps> = ({ studyPlans, tasks, fixedC
           {/* Show "No Sessions Planned" message when all sessions are filtered out */}
           {todaysPlan.plannedTasks.filter(session => session.status !== 'skipped').length === 0 && (
             <div className="text-center py-8">
-              <div className="text-4xl mb-4">📚</div>
+              <div className="text-4xl mb-4"></div>
               <h3 className="text-xl font-semibold text-gray-800 mb-2 dark:text-white">No Sessions Planned</h3>
               <p className="text-gray-600 dark:text-gray-300">
-                You have no study sessions planned for today. Time to generate a study plan! 🚀
+                You have no study sessions planned for today. Time to generate a study plan! 
               </p>
             </div>
           )}
@@ -1107,10 +1107,10 @@ const StudyPlanView: React.FC<StudyPlanViewProps> = ({ studyPlans, tasks, fixedC
             <h2 className="text-xl font-semibold text-gray-800 ml-2 dark:text-white">Today's Sessions</h2>
           </div>
           <div className="text-center py-8">
-            <div className="text-4xl mb-4">📚</div>
+            <div className="text-4xl mb-4"></div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2 dark:text-white">No Sessions Planned</h3>
             <p className="text-gray-600 dark:text-gray-300">
-              You have no study sessions planned for today. Time to generate a study plan! 🚀
+              You have no study sessions planned for today. Time to generate a study plan! 
             </p>
           </div>
         </div>
@@ -1190,7 +1190,7 @@ const StudyPlanView: React.FC<StudyPlanViewProps> = ({ studyPlans, tasks, fixedC
                           <div className="flex items-center space-x-2">
                           <div className="flex items-center space-x-2 text-xs text-gray-500 dark:text-gray-300">
                             <span>{session.startTime} - {session.endTime}</span>
-                            <span>•</span>
+                            <span></span>
                             <span>{formatTime(session.allocatedHours)}</span>
                             {isRescheduled && session.originalTime && (
                               <span className="text-blue-600 dark:text-blue-400">
@@ -1226,7 +1226,7 @@ const StudyPlanView: React.FC<StudyPlanViewProps> = ({ studyPlans, tasks, fixedC
         <div className="bg-white rounded-xl shadow-lg p-6 text-center dark:bg-gray-900 dark:shadow-gray-900">
           <BookOpen size={48} className="mx-auto mb-4 text-gray-300 dark:text-gray-700" />
           <h2 className="text-xl font-semibold text-gray-800 mb-2 dark:text-white">Ready to Get Started?</h2>
-          <p className="text-gray-500 dark:text-gray-300">Add some tasks and I'll create your perfect study schedule! 🎯</p>
+          <p className="text-gray-500 dark:text-gray-300">Add some tasks and I'll create your perfect study schedule! </p>
         </div>
       )}
     </div>

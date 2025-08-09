@@ -51,7 +51,7 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
     // Welcome & Overview
     {
       id: 'welcome',
-      title: 'Welcome to TimePilot! 🚀',
+      title: 'Welcome to TimePilot! ',
       description: 'TimePilot is an intelligent study planning app that automatically creates optimized schedules based on your tasks, deadlines, and commitments. Let\'s learn how to use it effectively!',
       position: 'center',
       action: 'observe',
@@ -61,10 +61,10 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
           <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
             <p className="font-medium text-blue-800 dark:text-blue-200 mb-2">What TimePilot Does:</p>
             <ul className="space-y-1 text-blue-700 dark:text-blue-300">
-              <li>• Automatically schedules study sessions</li>
-              <li>• Considers your existing commitments</li>
-              <li>• Adapts to deadline priorities</li>
-              <li>• Tracks your study progress</li>
+              <li> Automatically schedules study sessions</li>
+              <li> Considers your existing commitments</li>
+              <li> Adapts to deadline priorities</li>
+              <li> Tracks your study progress</li>
             </ul>
           </div>
         </div>
@@ -89,9 +89,9 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
               </div>
               <p className="text-green-700 dark:text-green-300 mb-2">Work you need to accomplish (flexible timing)</p>
               <ul className="text-xs text-green-600 dark:text-green-400 space-y-1">
-                <li>• Study for Math exam</li>
-                <li>• Write essay for English</li>
-                <li>• Complete programming assignment</li>
+                <li> Study for Math exam</li>
+                <li> Write essay for English</li>
+                <li> Complete programming assignment</li>
               </ul>
             </div>
             
@@ -102,9 +102,9 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
               </div>
               <p className="text-orange-700 dark:text-orange-300 mb-2">Fixed appointments (cannot be moved)</p>
               <ul className="text-xs text-orange-600 dark:text-orange-400 space-y-1">
-                <li>• Class lectures at 9:00 AM</li>
-                <li>• Work shifts</li>
-                <li>• Doctor appointments</li>
+                <li> Class lectures at 9:00 AM</li>
+                <li> Work shifts</li>
+                <li> Doctor appointments</li>
               </ul>
             </div>
           </div>
@@ -130,11 +130,11 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
               <span className="font-semibold text-yellow-800 dark:text-yellow-200">Pro Tips for Tasks:</span>
             </div>
             <ul className="text-yellow-700 dark:text-yellow-300 space-y-1 text-xs">
-              <li>✅ <strong>DO:</strong> Break large tasks into smaller chunks (2-4 hours max)</li>
-              <li>✅ <strong>DO:</strong> Be realistic with time estimates</li>
-              <li>✅ <strong>DO:</strong> Mark truly important tasks as "Important"</li>
-              <li>❌ <strong>DON'T:</strong> Add recurring events as tasks (use commitments instead)</li>
-              <li>❌ <strong>DON'T:</strong> Underestimate time - add 25% buffer</li>
+              <li> <strong>DO:</strong> Break large tasks into smaller chunks (2-4 hours max)</li>
+              <li> <strong>DO:</strong> Be realistic with time estimates</li>
+              <li> <strong>DO:</strong> Mark truly important tasks as "Important"</li>
+              <li> <strong>DON'T:</strong> Add recurring events as tasks (use commitments instead)</li>
+              <li> <strong>DON'T:</strong> Underestimate time - add 25% buffer</li>
             </ul>
           </div>
         </div>
@@ -168,7 +168,7 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
 
     {
       id: 'task-input-complete',
-      title: 'Excellent! Task Added Successfully ✅',
+      title: 'Excellent! Task Added Successfully ',
       description: 'Great! Notice how your task appears in the list with its estimated time and deadline. TimePilot will use this information to create your study schedule.',
       position: 'center',
       action: 'observe',
@@ -212,15 +212,15 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
         <div className="space-y-3 text-sm">
           <div className="space-y-2">
             <div className="bg-gray-50 dark:bg-gray-800 p-2 rounded-lg">
-              <p className="font-medium text-gray-800 dark:text-gray-200 mb-1">📅 <strong>One-time:</strong></p>
+              <p className="font-medium text-gray-800 dark:text-gray-200 mb-1"> <strong>One-time:</strong></p>
               <p className="text-gray-600 dark:text-gray-400 text-xs">Doctor appointment, job interview</p>
             </div>
             <div className="bg-gray-50 dark:bg-gray-800 p-2 rounded-lg">
-              <p className="font-medium text-gray-800 dark:text-gray-200 mb-1">🔄 <strong>Recurring:</strong></p>
+              <p className="font-medium text-gray-800 dark:text-gray-200 mb-1"> <strong>Recurring:</strong></p>
               <p className="text-gray-600 dark:text-gray-400 text-xs">Weekly classes, work shifts, gym sessions</p>
             </div>
             <div className="bg-gray-50 dark:bg-gray-800 p-2 rounded-lg">
-              <p className="font-medium text-gray-800 dark:text-gray-200 mb-1">🌙 <strong>Block scheduling:</strong></p>
+              <p className="font-medium text-gray-800 dark:text-gray-200 mb-1"> <strong>Block scheduling:</strong></p>
               <p className="text-gray-600 dark:text-gray-400 text-xs">Sleep time, meals, commute time</p>
             </div>
           </div>
@@ -255,7 +255,7 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
 
     {
       id: 'commitment-input-complete',
-      title: 'Perfect! Commitment Added ✅',
+      title: 'Perfect! Commitment Added ',
       description: 'Excellent! Your commitment is now saved. TimePilot will automatically avoid scheduling study sessions during this time.',
       position: 'center',
       action: 'observe',
@@ -285,7 +285,7 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
       customContent: (
         <div className="space-y-3 text-sm">
           <div className="bg-indigo-50 dark:bg-indigo-900/20 p-3 rounded-lg">
-            <p className="font-semibold text-indigo-800 dark:text-indigo-200 mb-2">🧠 Smart Algorithm Considers:</p>
+            <p className="font-semibold text-indigo-800 dark:text-indigo-200 mb-2"> Smart Algorithm Considers:</p>
             <div className="grid grid-cols-2 gap-2 text-xs">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-red-500 rounded-full"></div>
@@ -333,10 +333,10 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
               <span className="font-semibold text-yellow-800 dark:text-yellow-200">Suggestions Panel Shows:</span>
             </div>
             <ul className="text-yellow-700 dark:text-yellow-300 space-y-1 text-xs">
-              <li>🟡 <strong>Unscheduled Hours:</strong> Tasks that couldn't fit in your schedule</li>
-              <li>🔴 <strong>Conflicts:</strong> Overlapping commitments or impossible deadlines</li>
-              <li>💡 <strong>Recommendations:</strong> Ways to optimize your schedule</li>
-              <li>⚡ <strong>Quick Fixes:</strong> One-click solutions to common problems</li>
+              <li> <strong>Unscheduled Hours:</strong> Tasks that couldn't fit in your schedule</li>
+              <li> <strong>Conflicts:</strong> Overlapping commitments or impossible deadlines</li>
+              <li> <strong>Recommendations:</strong> Ways to optimize your schedule</li>
+              <li> <strong>Quick Fixes:</strong> One-click solutions to common problems</li>
             </ul>
           </div>
           <div className="bg-red-50 dark:bg-red-900/20 p-2 rounded-lg">
@@ -371,20 +371,20 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
       customContent: (
         <div className="space-y-3 text-sm">
           <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
-            <p className="font-semibold text-blue-800 dark:text-blue-200 mb-2">📅 Calendar Features:</p>
+            <p className="font-semibold text-blue-800 dark:text-blue-200 mb-2"> Calendar Features:</p>
             <ul className="text-blue-700 dark:text-blue-300 space-y-1 text-xs">
-              <li>• Switch between day/week/month views</li>
-              <li>• Color-coded events (study sessions vs commitments)</li>
-              <li>• Drag-and-drop to reschedule (where possible)</li>
-              <li>• Click on events for details and actions</li>
+              <li> Switch between day/week/month views</li>
+              <li> Color-coded events (study sessions vs commitments)</li>
+              <li> Drag-and-drop to reschedule (where possible)</li>
+              <li> Click on events for details and actions</li>
             </ul>
           </div>
           <div className="bg-green-50 dark:bg-green-900/20 p-2 rounded-lg">
-            <p className="font-semibold text-green-800 dark:text-green-200 mb-1">✅ Best Practices:</p>
+            <p className="font-semibold text-green-800 dark:text-green-200 mb-1"> Best Practices:</p>
             <ul className="text-green-700 dark:text-green-300 space-y-1 text-xs">
-              <li>• Review your weekly schedule every Sunday</li>
-              <li>• Check for overloaded days and redistribute</li>
-              <li>• Leave 1-2 hours buffer for unexpected tasks</li>
+              <li> Review your weekly schedule every Sunday</li>
+              <li> Check for overloaded days and redistribute</li>
+              <li> Leave 1-2 hours buffer for unexpected tasks</li>
             </ul>
           </div>
         </div>
@@ -415,17 +415,17 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
         <div className="space-y-3 text-sm">
           <div className="space-y-2">
             <div className="bg-purple-50 dark:bg-purple-900/20 p-3 rounded-lg border-l-4 border-purple-500">
-              <p className="font-semibold text-purple-800 dark:text-purple-200 mb-1">🎯 <strong>Eisenhower Matrix</strong></p>
+              <p className="font-semibold text-purple-800 dark:text-purple-200 mb-1"> <strong>Eisenhower Matrix</strong></p>
               <p className="text-purple-700 dark:text-purple-300 text-xs mb-2">Smart prioritization based on importance + urgency</p>
               <p className="text-purple-600 dark:text-purple-400 text-xs"><strong>Best for:</strong> Mixed workload with varying priorities</p>
             </div>
             <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg border-l-4 border-blue-500">
-              <p className="font-semibold text-blue-800 dark:text-blue-200 mb-1">⚖️ <strong>Evenly Distributed</strong></p>
+              <p className="font-semibold text-blue-800 dark:text-blue-200 mb-1"> <strong>Evenly Distributed</strong></p>
               <p className="text-blue-700 dark:text-blue-300 text-xs mb-2">Equal time allocation across all tasks</p>
               <p className="text-blue-600 dark:text-blue-400 text-xs"><strong>Best for:</strong> Similar priority tasks or maintaining balance</p>
             </div>
             <div className="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg border-l-4 border-green-500">
-              <p className="font-semibold text-green-800 dark:text-green-200 mb-1">🎯 <strong>Balanced Priority</strong></p>
+              <p className="font-semibold text-green-800 dark:text-green-200 mb-1"> <strong>Balanced Priority</strong></p>
               <p className="text-green-700 dark:text-green-300 text-xs mb-2">Weighted distribution favoring important tasks</p>
               <p className="text-green-600 dark:text-green-400 text-xs"><strong>Best for:</strong> When some tasks are more critical than others</p>
             </div>
@@ -445,7 +445,7 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
       customContent: (
         <div className="bg-orange-50 dark:bg-orange-900/20 p-2 rounded-lg text-sm">
           <p className="text-orange-800 dark:text-orange-200 text-xs">
-            💡 <strong>Tip:</strong> Try switching between modes and check the calendar to see how session distribution changes!
+             <strong>Tip:</strong> Try switching between modes and check the calendar to see how session distribution changes!
           </p>
         </div>
       )
@@ -462,15 +462,15 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
         <div className="space-y-3 text-sm">
           <div className="grid grid-cols-1 gap-2">
             <div className="bg-gray-50 dark:bg-gray-800 p-2 rounded-lg">
-              <p className="font-medium text-gray-800 dark:text-gray-200 text-xs mb-1">⏰ <strong>Daily Available Hours</strong></p>
+              <p className="font-medium text-gray-800 dark:text-gray-200 text-xs mb-1"> <strong>Daily Available Hours</strong></p>
               <p className="text-gray-600 dark:text-gray-400 text-xs">Maximum hours you want to study per day (excluding commitments)</p>
             </div>
             <div className="bg-gray-50 dark:bg-gray-800 p-2 rounded-lg">
-              <p className="font-medium text-gray-800 dark:text-gray-200 text-xs mb-1">📅 <strong>Work Days</strong></p>
+              <p className="font-medium text-gray-800 dark:text-gray-200 text-xs mb-1"> <strong>Work Days</strong></p>
               <p className="text-gray-600 dark:text-gray-400 text-xs">Which days you're available to study (weekends optional)</p>
             </div>
             <div className="bg-gray-50 dark:bg-gray-800 p-2 rounded-lg">
-              <p className="font-medium text-gray-800 dark:text-gray-200 text-xs mb-1">🛡️ <strong>Buffer Days</strong></p>
+              <p className="font-medium text-gray-800 dark:text-gray-200 text-xs mb-1"> <strong>Buffer Days</strong></p>
               <p className="text-gray-600 dark:text-gray-400 text-xs">Extra days before deadlines for safety (recommended: 1-2 days)</p>
             </div>
           </div>
@@ -489,16 +489,16 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
       customContent: (
         <div className="space-y-3 text-sm">
           <div className="bg-red-50 dark:bg-red-900/20 p-3 rounded-lg">
-            <p className="font-semibold text-red-800 dark:text-red-200 mb-2">🔄 When Sessions Are Missed:</p>
+            <p className="font-semibold text-red-800 dark:text-red-200 mb-2"> When Sessions Are Missed:</p>
             <ul className="text-red-700 dark:text-red-300 space-y-1 text-xs">
-              <li>• TimePilot automatically detects missed sessions</li>
-              <li>• Shows redistribution options in the suggestions panel</li>
-              <li>• Offers both Enhanced and Legacy redistribution modes</li>
-              <li>• Reschedules missed work around your existing commitments</li>
+              <li> TimePilot automatically detects missed sessions</li>
+              <li> Shows redistribution options in the suggestions panel</li>
+              <li> Offers both Enhanced and Legacy redistribution modes</li>
+              <li> Reschedules missed work around your existing commitments</li>
             </ul>
           </div>
           <div className="bg-blue-50 dark:bg-blue-900/20 p-2 rounded-lg">
-            <p className="font-semibold text-blue-800 dark:text-blue-200 mb-1">💡 <strong>Pro Tip:</strong></p>
+            <p className="font-semibold text-blue-800 dark:text-blue-200 mb-1"> <strong>Pro Tip:</strong></p>
             <p className="text-blue-700 dark:text-blue-300 text-xs">
               Use Enhanced mode first - it's smarter about finding optimal time slots. Fall back to Legacy mode if needed.
             </p>
@@ -530,16 +530,16 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
       customContent: (
         <div className="space-y-3 text-sm">
           <div className="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
-            <p className="font-semibold text-green-800 dark:text-green-200 mb-2">✅ Session Management:</p>
+            <p className="font-semibold text-green-800 dark:text-green-200 mb-2"> Session Management:</p>
             <ul className="text-green-700 dark:text-green-300 space-y-1 text-xs">
-              <li>• Click on any session to start the timer</li>
-              <li>• Mark sessions "Complete" when finished</li>
-              <li>• Mark "Skipped" if you intentionally skip</li>
-              <li>• Sessions missed entirely will auto-detect</li>
+              <li> Click on any session to start the timer</li>
+              <li> Mark sessions "Complete" when finished</li>
+              <li> Mark "Skipped" if you intentionally skip</li>
+              <li> Sessions missed entirely will auto-detect</li>
             </ul>
           </div>
           <div className="bg-yellow-50 dark:bg-yellow-900/20 p-2 rounded-lg">
-            <p className="font-semibold text-yellow-800 dark:text-yellow-200 mb-1">⚠️ <strong>Important:</strong></p>
+            <p className="font-semibold text-yellow-800 dark:text-yellow-200 mb-1"> <strong>Important:</strong></p>
             <p className="text-yellow-700 dark:text-yellow-300 text-xs">
               Always mark sessions appropriately - this helps TimePilot track your progress and suggest better schedules!
             </p>
@@ -563,7 +563,7 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
     // Timer Features
     {
       id: 'timer-intro',
-      title: 'Step 7: Study Timer Features ⏱️',
+      title: 'Step 7: Study Timer Features ',
       description: 'Perfect! The timer is now active. Navigate to "Timer" to see all the timer features.',
       position: 'center',
       action: 'observe',
@@ -580,21 +580,21 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
       customContent: (
         <div className="space-y-3 text-sm">
           <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
-            <p className="font-semibold text-blue-800 dark:text-blue-200 mb-2">⏰ Timer Features:</p>
+            <p className="font-semibold text-blue-800 dark:text-blue-200 mb-2"> Timer Features:</p>
             <ul className="text-blue-700 dark:text-blue-300 space-y-1 text-xs">
-              <li>• Pause/Resume during breaks</li>
-              <li>• Skip session if you can't continue</li>
-              <li>• Mark complete when finished early</li>
-              <li>• Automatic progress tracking</li>
-              <li>• Session completion history</li>
+              <li> Pause/Resume during breaks</li>
+              <li> Skip session if you can't continue</li>
+              <li> Mark complete when finished early</li>
+              <li> Automatic progress tracking</li>
+              <li> Session completion history</li>
             </ul>
           </div>
           <div className="bg-purple-50 dark:bg-purple-900/20 p-2 rounded-lg">
-            <p className="font-semibold text-purple-800 dark:text-purple-200 mb-1">🎯 <strong>Focus Tips:</strong></p>
+            <p className="font-semibold text-purple-800 dark:text-purple-200 mb-1"> <strong>Focus Tips:</strong></p>
             <ul className="text-purple-700 dark:text-purple-300 text-xs space-y-1">
-              <li>• Put phone in another room</li>
-              <li>• Use noise-canceling headphones</li>
-              <li>• Take short breaks every 45-60 minutes</li>
+              <li> Put phone in another room</li>
+              <li> Use noise-canceling headphones</li>
+              <li> Take short breaks every 45-60 minutes</li>
             </ul>
           </div>
         </div>
@@ -617,20 +617,20 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
               <span className="font-semibold text-indigo-800 dark:text-indigo-200">Pro Success Strategies:</span>
             </div>
             <ul className="text-indigo-700 dark:text-indigo-300 space-y-1 text-xs">
-              <li>🔄 <strong>Weekly Review:</strong> Check progress every Sunday and adjust</li>
-              <li>📊 <strong>Track Patterns:</strong> Notice when you're most productive</li>
-              <li>⚡ <strong>Batch Similar Tasks:</strong> Group reading, writing, problem-solving</li>
-              <li>🎯 <strong>Start Small:</strong> Begin with 2-3 tasks, then scale up</li>
-              <li>🏆 <strong>Celebrate Wins:</strong> Acknowledge completed sessions</li>
+              <li> <strong>Weekly Review:</strong> Check progress every Sunday and adjust</li>
+              <li> <strong>Track Patterns:</strong> Notice when you're most productive</li>
+              <li> <strong>Batch Similar Tasks:</strong> Group reading, writing, problem-solving</li>
+              <li> <strong>Start Small:</strong> Begin with 2-3 tasks, then scale up</li>
+              <li> <strong>Celebrate Wins:</strong> Acknowledge completed sessions</li>
             </ul>
           </div>
           <div className="bg-red-50 dark:bg-red-900/20 p-2 rounded-lg">
-            <p className="font-semibold text-red-800 dark:text-red-200 mb-1">⚠️ <strong>Common Mistakes to Avoid:</strong></p>
+            <p className="font-semibold text-red-800 dark:text-red-200 mb-1"> <strong>Common Mistakes to Avoid:</strong></p>
             <ul className="text-red-700 dark:text-red-300 text-xs space-y-1">
-              <li>• Overestimating daily study capacity</li>
-              <li>• Not updating progress regularly</li>
-              <li>• Ignoring the suggestions panel</li>
-              <li>• Scheduling back-to-back sessions without breaks</li>
+              <li> Overestimating daily study capacity</li>
+              <li> Not updating progress regularly</li>
+              <li> Ignoring the suggestions panel</li>
+              <li> Scheduling back-to-back sessions without breaks</li>
             </ul>
           </div>
         </div>
@@ -652,7 +652,7 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
         <div className="space-y-2 text-sm">
           <div className="bg-emerald-50 dark:bg-emerald-900/20 p-2 rounded-lg">
             <p className="text-emerald-800 dark:text-emerald-200 text-xs">
-              📊 <strong>Dashboard shows:</strong> Completion rates, time tracking, upcoming deadlines, and productivity insights.
+               <strong>Dashboard shows:</strong> Completion rates, time tracking, upcoming deadlines, and productivity insights.
             </p>
           </div>
         </div>
@@ -662,7 +662,7 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
     // Final Step
     {
       id: 'tutorial-complete',
-      title: 'Congratulations! You\'re Now a TimePilot Expert! 🎉',
+      title: 'Congratulations! You\'re Now a TimePilot Expert! ',
       description: 'You\'ve mastered all the core features. You\'re ready to take control of your study schedule!',
       position: 'center',
       action: 'observe',
@@ -673,7 +673,7 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
             <CheckCircle className="text-green-500" size={48} />
           </div>
           <div className="text-center space-y-3">
-            <p className="font-semibold text-gray-800 dark:text-gray-200">🎯 Your Action Plan:</p>
+            <p className="font-semibold text-gray-800 dark:text-gray-200"> Your Action Plan:</p>
             <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 p-3 rounded-lg">
               <ol className="text-sm space-y-2 text-left">
                 <li className="flex items-start space-x-2">
@@ -696,7 +696,7 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
             </div>
             <div className="bg-yellow-50 dark:bg-yellow-900/20 p-2 rounded-lg">
               <p className="text-yellow-800 dark:text-yellow-200 text-xs">
-                💡 <strong>Remember:</strong> Check the suggestions panel regularly for optimization tips and schedule improvements!
+                 <strong>Remember:</strong> Check the suggestions panel regularly for optimization tips and schedule improvements!
               </p>
             </div>
           </div>
@@ -930,7 +930,7 @@ const InteractiveTutorial: React.FC<InteractiveTutorialProps> = ({
             {currentStep.requiresAction && !isNextButtonEnabled && (
               <div className="mt-2 p-2 bg-yellow-50 border border-yellow-200 rounded-lg dark:bg-yellow-900/20 dark:border-yellow-700">
                 <div className="flex items-center space-x-2 text-xs text-yellow-700 dark:text-yellow-300">
-                  <span>⚠️</span>
+                  <span></span>
                   <span>
                     {currentStep.waitFor === 'task-added' && 'Please add a task to continue'}
                     {currentStep.waitFor === 'commitment-added' && 'Please add a commitment to continue'}

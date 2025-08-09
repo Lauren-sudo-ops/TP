@@ -861,38 +861,38 @@ const CalendarView: React.FC<CalendarViewProps> = ({
     // Map categories to emojis
     switch (categoryLower) {
       case 'academics':
-        return '📚';
+        return '';
       case 'org':
       case 'organization':
-        return '🏢';
+        return '';
       case 'work':
-        return '💼';
+        return '';
       case 'personal':
-        return '👤';
+        return '';
       case 'health':
-        return '🏥';
+        return '';
       case 'learning':
-        return '🎓';
+        return '';
       case 'finance':
-        return '💰';
+        return '';
       case 'home':
-        return '🏠';
+        return '';
       default:
         // For custom categories, try to match common words
         if (categoryLower.includes('study') || categoryLower.includes('school') || categoryLower.includes('class')) {
-          return '📚';
+          return '';
         } else if (categoryLower.includes('work') || categoryLower.includes('job') || categoryLower.includes('business')) {
-          return '💼';
+          return '';
         } else if (categoryLower.includes('health') || categoryLower.includes('medical') || categoryLower.includes('fitness')) {
-          return '🏥';
+          return '';
         } else if (categoryLower.includes('finance') || categoryLower.includes('money') || categoryLower.includes('budget')) {
-          return '💰';
+          return '';
         } else if (categoryLower.includes('home') || categoryLower.includes('house') || categoryLower.includes('family')) {
-          return '🏠';
+          return '';
         } else if (categoryLower.includes('personal') || categoryLower.includes('life')) {
-          return '👤';
+          return '';
         } else {
-          return '📋'; // Default for unknown categories
+          return ''; // Default for unknown categories
         }
     }
   };
@@ -936,9 +936,9 @@ const CalendarView: React.FC<CalendarViewProps> = ({
       // Add status indicators for missed/overdue sessions
       const sessionStatus = checkSessionStatus(event.resource.data, moment(event.start).format('YYYY-MM-DD'));
       if (sessionStatus === 'missed') {
-        statusIndicator = '❌'; // Red X for missed
+        statusIndicator = ''; // Red X for missed
       } else if (sessionStatus === 'overdue') {
-        statusIndicator = '⏰'; // Clock for overdue
+        statusIndicator = ''; // Clock for overdue
       }
 
       // Debug logging for calendar event status

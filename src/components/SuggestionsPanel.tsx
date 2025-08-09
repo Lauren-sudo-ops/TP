@@ -102,7 +102,7 @@ const SuggestionsPanel: React.FC<SuggestionsPanelProps> = ({
               Study Plan Optimization
             </h3>
             <p className="text-xs text-blue-600 dark:text-blue-300">
-              {notificationSummary.totalUnscheduledTasks} task{notificationSummary.totalUnscheduledTasks > 1 ? 's' : ''} • {formatTime(notificationSummary.totalUnscheduledMinutes)} unscheduled
+              {notificationSummary.totalUnscheduledTasks} task{notificationSummary.totalUnscheduledTasks > 1 ? 's' : ''}  {formatTime(notificationSummary.totalUnscheduledMinutes)} unscheduled
             </p>
           </div>
         </div>
@@ -149,7 +149,7 @@ const SuggestionsPanel: React.FC<SuggestionsPanelProps> = ({
                     </div>
                     <div className="text-xs text-gray-600 dark:text-gray-400 mb-2">
                       <span className="font-medium">{formatTime(taskNotification.unscheduledMinutes)}</span> unscheduled of {formatTime(taskNotification.estimatedHours * 60)} total
-                      <span className="mx-2">•</span>
+                      <span className="mx-2"></span>
                       <span className={daysUntilDeadline <= 0 ? 'text-red-600 dark:text-red-400 font-medium' : 
                                      daysUntilDeadline <= 1 ? 'text-orange-600 dark:text-orange-400 font-medium' :
                                      daysUntilDeadline <= 3 ? 'text-yellow-600 dark:text-yellow-400' : ''}>
@@ -162,7 +162,7 @@ const SuggestionsPanel: React.FC<SuggestionsPanelProps> = ({
                     {/* Quick actions for urgent tasks */}
                     {taskNotification.urgencyLevel === 'critical' && (
                       <div className="mb-2 p-2 bg-red-50 border border-red-200 rounded text-xs text-red-700 dark:bg-red-900/20 dark:border-red-800 dark:text-red-300">
-                        <span className="font-medium">⚠️ Urgent Action Required:</span> This task needs immediate attention or deadline extension.
+                        <span className="font-medium"> Urgent Action Required:</span> This task needs immediate attention or deadline extension.
                       </div>
                     )}
                   </div>
