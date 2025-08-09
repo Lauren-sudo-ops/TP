@@ -37,6 +37,18 @@ const TaskInputSimplified: React.FC<TaskInputProps> = ({ onAddTask, onCancel, us
   const [showHelpModal, setShowHelpModal] = useState(false);
   const [showValidationErrors, setShowValidationErrors] = useState(false);
   const today = new Date().toISOString().split('T')[0];
+  
+  // Quick time presets
+  const [showTimePresets, setShowTimePresets] = useState(false);
+  const timePresets = [
+    { label: '15m', hours: '0', minutes: '15' },
+    { label: '30m', hours: '0', minutes: '30' },
+    { label: '45m', hours: '0', minutes: '45' },
+    { label: '1h', hours: '1', minutes: '0' },
+    { label: '1h 30m', hours: '1', minutes: '30' },
+    { label: '2h', hours: '2', minutes: '0' },
+    { label: '3h', hours: '3', minutes: '0' },
+  ];
 
   // Auto-detect deadline type based on whether deadline is set
   useEffect(() => {
@@ -272,6 +284,47 @@ const TaskInputSimplified: React.FC<TaskInputProps> = ({ onAddTask, onCancel, us
                   Deadline cannot be in the past. Please select today or a future date.
                 </div>
               )}
+              {/* Quick deadline shortcuts */}
+              <div className="mt-2 flex flex-wrap gap-2 text-xs">
+                <button
+                  type="button"
+                  className="px-2 py-1 rounded border bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white"
+                  onClick={() => setFormData(f => ({ ...f, deadline: today }))}
+                >
+                  Today
+                </button>
+                <button
+                  type="button"
+                  className="px-2 py-1 rounded border bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white"
+                  onClick={() => {
+                    const d = new Date();
+                    d.setDate(d.getDate() + 1);
+                    const iso = d.toISOString().split('T')[0];
+                    setFormData(f => ({ ...f, deadline: iso }));
+                  }}
+                >
+                  Tomorrow
+                </button>
+                <button
+                  type="button"
+                  className="px-2 py-1 rounded border bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white"
+                  onClick={() => {
+                    const d = new Date();
+                    d.setDate(d.getDate() + 7);
+                    const iso = d.toISOString().split('T')[0];
+                    setFormData(f => ({ ...f, deadline: iso }));
+                  }}
+                >
+                  Next week
+                </button>
+                <button
+                  type="button"
+                  className="px-2 py-1 rounded border bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white"
+                  onClick={() => setFormData(f => ({ ...f, deadline: '' }))}
+                >
+                  Clear
+                </button>
+              </div>
             </div>
           </div>
 
@@ -300,6 +353,46 @@ const TaskInputSimplified: React.FC<TaskInputProps> = ({ onAddTask, onCancel, us
                 <span>Estimate</span>
               </button>
             </div>
+          </div>
+          <div className="mt-1">
+            <button
+              type="button"
+              onClick={() => setShowTimeEstimationModal(true)}
+              className="text-xs text-violet-600 dark:text-violet-400 hover:underline"
+            >
+              Need help estimating?
+            </button>
+          </div>
+          {/* Time Presets - Hidden by default */}
+          <div className="mt-2">
+            <button
+              type="button"
+              onClick={() => setShowTimePresets(!showTimePresets)}
+              className="text-xs text-violet-600 dark:text-violet-400 hover:underline"
+            >
+              {showTimePresets ? 'Hide quick presets' : 'Show quick presets'}
+            </button>
+            {showTimePresets && (
+              <div className="mt-1">
+                <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Quick presets:</div>
+                <div className="flex flex-wrap gap-1">
+                  {timePresets.map((preset, index) => (
+                    <button
+                      key={index}
+                      type="button"
+                      onClick={() => setFormData(f => ({
+                        ...f,
+                        estimatedHours: preset.hours,
+                        estimatedMinutes: preset.minutes,
+                      }))}
+                      className="px-2 py-1 text-xs bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white rounded border transition-colors"
+                    >
+                      {preset.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* One-time task option */}
