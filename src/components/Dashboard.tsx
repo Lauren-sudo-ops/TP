@@ -213,71 +213,71 @@ const Dashboard: React.FC<DashboardProps> = ({ tasks, studyPlans, dailyAvailable
         // Much more varied motivational quotes based on progress
         if (avgProgress === 0 && completedTasks.length === 0) {
           const startingQuotes = [
-            { quote: "The secret of getting ahead is getting started.", author: "Mark Twain", emoji: "" },
-            { quote: "A year from now you may wish you had started today.", author: "Karen Lamb", emoji: "" },
-            { quote: "The best time to plant a tree was 20 years ago. The second best time is now.", author: "Chinese Proverb", emoji: "" },
-            { quote: "You don't have to be great to get started, but you have to get started to be great.", author: "Les Brown", emoji: "" },
-            { quote: "The journey of a thousand miles begins with one step.", author: "Lao Tzu", emoji: "" }
+            { quote: "The secret of getting ahead is getting started.", author: "Mark Twain", emoji: "🚀" },
+            { quote: "A year from now you may wish you had started today.", author: "Karen Lamb", emoji: "🌱" },
+            { quote: "The best time to plant a tree was 20 years ago. The second best time is now.", author: "Chinese Proverb", emoji: "🌳" },
+            { quote: "You don't have to be great to get started, but you have to get started to be great.", author: "Les Brown", emoji: "🎯" },
+            { quote: "The journey of a thousand miles begins with one step.", author: "Lao Tzu", emoji: "👣" }
           ];
           const selected = startingQuotes[Math.floor(Math.random() * startingQuotes.length)];
           quote = selected.quote; author = selected.author; emoji = selected.emoji;
         } else if (avgProgress < 15) {
           const earlyQuotes = [
-            { quote: "Small steps daily lead to big results yearly.", author: "Unknown", emoji: "" },
-            { quote: "Progress is impossible without change.", author: "George Bernard Shaw", emoji: "" },
-            { quote: "Every expert was once a beginner.", author: "Helen Hayes", emoji: "" },
-            { quote: "Rome wasn't built in a day, but they were laying bricks every hour.", author: "John Heywood", emoji: "" },
-            { quote: "A little progress each day adds up to big results.", author: "Unknown", emoji: "" }
+            { quote: "Small steps daily lead to big results yearly.", author: "Unknown", emoji: "📈" },
+            { quote: "Progress is impossible without change.", author: "George Bernard Shaw", emoji: "🔄" },
+            { quote: "Every expert was once a beginner.", author: "Helen Hayes", emoji: "🧩" },
+            { quote: "Rome wasn't built in a day, but they were laying bricks every hour.", author: "John Heywood", emoji: "🧱" },
+            { quote: "A little progress each day adds up to big results.", author: "Unknown", emoji: "⏳" }
           ];
           const selected = earlyQuotes[Math.floor(Math.random() * earlyQuotes.length)];
           quote = selected.quote; author = selected.author; emoji = selected.emoji;
         } else if (avgProgress < 35) {
           const buildingQuotes = [
-            { quote: "Success is the sum of small efforts repeated day in and day out.", author: "Robert Collier", emoji: "" },
-            { quote: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson", emoji: "" },
-            { quote: "The difference between ordinary and extraordinary is that little extra.", author: "Jimmy Johnson", emoji: "" },
-            { quote: "Momentum is a beautiful thing.", author: "Unknown", emoji: "" },
-            { quote: "Excellence is not a skill, it's an attitude.", author: "Ralph Marston", emoji: "" }
+            { quote: "Success is the sum of small efforts repeated day in and day out.", author: "Robert Collier", emoji: "🔁" },
+            { quote: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson", emoji: "⏰" },
+            { quote: "The difference between ordinary and extraordinary is that little extra.", author: "Jimmy Johnson", emoji: "✨" },
+            { quote: "Momentum is a beautiful thing.", author: "Unknown", emoji: "💫" },
+            { quote: "Excellence is not a skill, it's an attitude.", author: "Ralph Marston", emoji: "🧠" }
           ];
           const selected = buildingQuotes[Math.floor(Math.random() * buildingQuotes.length)];
           quote = selected.quote; author = selected.author; emoji = selected.emoji;
         } else if (avgProgress < 60) {
           const momentumQuotes = [
-            { quote: "You're closer than you think. Keep going!", author: "Unknown", emoji: "" },
-            { quote: "The middle is messy, but it's also where the magic happens.", author: "Bren Brown", emoji: "" },
-            { quote: "Persistence is the hard work you do after you get tired of doing the hard work you already did.", author: "Newt Gingrich", emoji: "" },
-            { quote: "Half the battle is just showing up.", author: "Woody Allen", emoji: "" },
-            { quote: "Progress, not perfection.", author: "Unknown", emoji: "" }
+            { quote: "You're closer than you think. Keep going!", author: "Unknown", emoji: "💪" },
+            { quote: "The middle is messy, but it's also where the magic happens.", author: "Bren Brown", emoji: "✨" },
+            { quote: "Persistence is the hard work you do after you get tired of doing the hard work you already did.", author: "Newt Gingrich", emoji: "🏋️" },
+            { quote: "Half the battle is just showing up.", author: "Woody Allen", emoji: "👣" },
+            { quote: "Progress, not perfection.", author: "Unknown", emoji: "🎯" }
           ];
           const selected = momentumQuotes[Math.floor(Math.random() * momentumQuotes.length)];
           quote = selected.quote; author = selected.author; emoji = selected.emoji;
         } else if (avgProgress < 85) {
           const pushingQuotes = [
-            { quote: "You're so close! The final push is always the hardest.", author: "Unknown", emoji: "" },
-            { quote: "Champions train, losers complain.", author: "Unknown", emoji: "" },
-            { quote: "The last mile is always the longest.", author: "Unknown", emoji: "" },
-            { quote: "Strong people don't give up, they find a way.", author: "Unknown", emoji: "" },
-            { quote: "When you feel like quitting, think about why you started.", author: "Unknown", emoji: "" }
+            { quote: "You're so close! The final push is always the hardest.", author: "Unknown", emoji: "🏃‍♂️" },
+            { quote: "Champions train, losers complain.", author: "Unknown", emoji: "🏆" },
+            { quote: "The last mile is always the longest.", author: "Unknown", emoji: "🛣️" },
+            { quote: "Strong people don't give up, they find a way.", author: "Unknown", emoji: "🧭" },
+            { quote: "When you feel like quitting, think about why you started.", author: "Unknown", emoji: "🔥" }
           ];
           const selected = pushingQuotes[Math.floor(Math.random() * pushingQuotes.length)];
           quote = selected.quote; author = selected.author; emoji = selected.emoji;
         } else if (avgProgress < 100) {
           const almostQuotes = [
-            { quote: "The last 10% separates the good from the great.", author: "Unknown", emoji: "" },
-            { quote: "Finishing strong is an art form.", author: "Unknown", emoji: "" },
-            { quote: "You can see the finish line. Sprint!", author: "Unknown", emoji: "" },
-            { quote: "Excellence is doing ordinary things extraordinarily well.", author: "John W. Gardner", emoji: "" },
-            { quote: "The final stretch is where legends are made.", author: "Unknown", emoji: "" }
+            { quote: "The last 10% separates the good from the great.", author: "Unknown", emoji: "🔟" },
+            { quote: "Finishing strong is an art form.", author: "Unknown", emoji: "🎨" },
+            { quote: "You can see the finish line. Sprint!", author: "Unknown", emoji: "🏁" },
+            { quote: "Excellence is doing ordinary things extraordinarily well.", author: "John W. Gardner", emoji: "⭐" },
+            { quote: "The final stretch is where legends are made.", author: "Unknown", emoji: "⚡" }
           ];
           const selected = almostQuotes[Math.floor(Math.random() * almostQuotes.length)];
           quote = selected.quote; author = selected.author; emoji = selected.emoji;
         } else {
           const completedQuotes = [
-            { quote: "Well done! Success is a journey, not a destination.", author: "Ben Sweetland", emoji: "" },
-            { quote: "The expert in anything was once a beginner.", author: "Helen Hayes", emoji: "" },
-            { quote: "What's next? The best is yet to come!", author: "Unknown", emoji: "" },
-            { quote: "Celebrate your wins, then set new goals.", author: "Unknown", emoji: "" },
-            { quote: "You didn't just complete tasks, you built discipline.", author: "Unknown", emoji: "" }
+            { quote: "Well done! Success is a journey, not a destination.", author: "Ben Sweetland", emoji: "🎉" },
+            { quote: "The expert in anything was once a beginner.", author: "Helen Hayes", emoji: "🎓" },
+            { quote: "What's next? The best is yet to come!", author: "Unknown", emoji: "🚀" },
+            { quote: "Celebrate your wins, then set new goals.", author: "Unknown", emoji: "🥳" },
+            { quote: "You didn't just complete tasks, you built discipline.", author: "Unknown", emoji: "🏅" }
           ];
           const selected = completedQuotes[Math.floor(Math.random() * completedQuotes.length)];
           quote = selected.quote; author = selected.author; emoji = selected.emoji;
