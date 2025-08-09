@@ -29,6 +29,7 @@ const TaskInputSimplified: React.FC<TaskInputProps> = ({ onAddTask, onCancel, us
     minWorkBlock: 30, // Only used for deadline tasks
     maxSessionLength: 2, // Default 2 hours for no-deadline tasks
     isOneTimeTask: false,
+    startDate: new Date().toISOString().split('T')[0],
   });
 
   const [showTimeEstimationModal, setShowTimeEstimationModal] = useState(false);
@@ -85,6 +86,7 @@ const TaskInputSimplified: React.FC<TaskInputProps> = ({ onAddTask, onCancel, us
   const isTitleValid = formData.title.trim().length > 0;
   const isTitleLengthValid = formData.title.trim().length <= 100;
   const isDeadlineValid = !formData.deadline || new Date(formData.deadline) >= new Date(today);
+  const isStartDateValid = !formData.startDate || new Date(formData.startDate) >= new Date(today);
   const totalTime = convertToDecimalHours(formData.estimatedHours, formData.estimatedMinutes);
   const isEstimatedValid = totalTime > 0;
   const isEstimatedReasonable = totalTime <= 100;
@@ -96,7 +98,7 @@ const TaskInputSimplified: React.FC<TaskInputProps> = ({ onAddTask, onCancel, us
   const isOneSittingTooLong = formData.isOneTimeTask && estimatedDecimalHours > userSettings.dailyAvailableHours;
   const isFormValid = isTitleValid && isTitleLengthValid && isDeadlineValid &&
                    isEstimatedValid && isEstimatedReasonable && isImpactValid &&
-                   isCustomCategoryValid && !isDeadlineRequiredForOneSitting;
+                   isCustomCategoryValid && !isDeadlineRequiredForOneSitting && isStartDateValid;
 
   const getValidationErrors = (): string[] => {
     const errors: string[] = [];
@@ -108,6 +110,7 @@ const TaskInputSimplified: React.FC<TaskInputProps> = ({ onAddTask, onCancel, us
     if (!isImpactValid) errors.push('Please select task importance');
     if (!isCustomCategoryValid) errors.push('Custom category must be between 1-50 characters');
     if (isDeadlineRequiredForOneSitting) errors.push('One-sitting tasks require a deadline to be scheduled properly');
+    if (!isStartDateValid) errors.push('Start date cannot be in the past');
     return errors;
   };
 
@@ -147,6 +150,7 @@ const TaskInputSimplified: React.FC<TaskInputProps> = ({ onAddTask, onCancel, us
       minWorkBlock: formData.deadlineType !== 'none' ? formData.minWorkBlock : undefined,
       maxSessionLength: formData.deadlineType === 'none' ? formData.maxSessionLength : undefined,
       isOneTimeTask: formData.isOneTimeTask,
+      startDate: formData.startDate || today,
     });
     setShowValidationErrors(false);
     // Reset form
@@ -168,6 +172,7 @@ const TaskInputSimplified: React.FC<TaskInputProps> = ({ onAddTask, onCancel, us
       minWorkBlock: 30,
       maxSessionLength: 2,
       isOneTimeTask: false,
+      startDate: today,
     });
     // Hide the form after successful submission
     onCancel?.();
@@ -384,147 +389,163 @@ const TaskInputSimplified: React.FC<TaskInputProps> = ({ onAddTask, onCancel, us
 )}
 
           {/* Advanced Timeline Options */}
-{!formData.isOneTimeTask && (
-  <div>
-    <button
-      type="button"
-      onClick={() => setShowTaskTimeline(!showTaskTimeline)}
-      className="flex items-center gap-2 text-violet-600 hover:text-violet-700 dark:text-violet-400 dark:hover:text-violet-300 text-sm font-medium transition-colors"
-    >
-      {showTaskTimeline ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-      Advanced Options
-    </button>
-
-    {showTaskTimeline && (
-      <div className="mt-3 p-4 bg-white/30 dark:bg-black/20 rounded-xl border border-white/20 dark:border-white/10">
-        {/* Deadline Type - Only show if deadline is set */}
-        {formData.deadline && formData.deadline.trim() !== '' && (
-          <div className="space-y-2 mb-4">
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">Deadline Type</label>
-            <div className="space-y-2">
-              {[
-                { value: 'hard', label: 'Hard deadline (must finish by date)' },
-                { value: 'soft', label: 'Flexible target date' }
-              ].map(option => (
-                <label key={option.value} className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    name="deadlineType"
-                    value={option.value}
-                    checked={formData.deadlineType === option.value}
-                    onChange={() => setFormData(f => ({ ...f, deadlineType: option.value as any }))}
-                    className="text-violet-600"
-                  />
-                  <span className="text-sm text-gray-700 dark:text-gray-200">{option.label}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Working Advanced Options */}
-        <div className="space-y-4">
-          {/* Frequency Override for Deadline Tasks */}
           <div>
-            <label className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                checked={formData.respectFrequencyForDeadlines}
-                onChange={e => setFormData(f => ({ ...f, respectFrequencyForDeadlines: e.target.checked }))}
-                className="text-violet-600"
-              />
-              <span className="text-sm text-gray-700 dark:text-gray-200">
-                Respect work frequency even for urgent deadlines
-              </span>
-            </label>
-            <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 ml-6">
-              When unchecked, urgent tasks will use daily scheduling regardless of frequency preference
-            </div>
+            <button
+              type="button"
+              onClick={() => setShowTaskTimeline(!showTaskTimeline)}
+              className="flex items-center gap-2 text-violet-600 hover:text-violet-700 dark:text-violet-400 dark:hover:text-violet-300 text-sm font-medium transition-colors"
+            >
+              {showTaskTimeline ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+              Advanced Options
+            </button>
+
+            {showTaskTimeline && (
+              <div className="mt-3 p-4 bg-white/30 dark:bg-black/20 rounded-xl border border-white/20 dark:border-white/10">
+                {/* Deadline Type - Only show if deadline is set */}
+                {formData.deadline && formData.deadline.trim() !== '' && (
+                  <div className="space-y-2 mb-4">
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">Deadline Type</label>
+                    <div className="space-y-2">
+                      {[
+                        { value: 'hard', label: 'Hard deadline (must finish by date)' },
+                        { value: 'soft', label: 'Flexible target date' }
+                      ].map(option => (
+                        <label key={option.value} className="flex items-center gap-2">
+                          <input
+                            type="radio"
+                            name="deadlineType"
+                            value={option.value}
+                            checked={formData.deadlineType === option.value}
+                            onChange={() => setFormData(f => ({ ...f, deadlineType: option.value as any }))}
+                            className="text-violet-600"
+                          />
+                          <span className="text-sm text-gray-700 dark:text-gray-200">{option.label}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Start Date */}
+                <div className="space-y-1 mb-4">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">Start Date</label>
+                  <input
+                    type="date"
+                    min={today}
+                    value={formData.startDate}
+                    onChange={e => setFormData(f => ({ ...f, startDate: e.target.value || today }))}
+                    className="w-full px-3 py-2 border border-white/30 dark:border-white/20 rounded-xl text-sm bg-white/70 dark:bg-black/20 dark:text-white focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                  />
+                  {!isStartDateValid && formData.startDate && (
+                    <div className="text-red-600 text-xs mt-1">
+                      Start date cannot be in the past. Please select today or a future date.
+                    </div>
+                  )}
+                  <div className="text-xs text-gray-500 dark:text-gray-400">Default is today. Sessions won't be scheduled before this date.</div>
+                </div>
+
+                {/* Working Advanced Options */}
+                <div className="space-y-4">
+                  {/* Frequency Override for Deadline Tasks */}
+                  <div>
+                    <label className="flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        checked={formData.respectFrequencyForDeadlines}
+                        onChange={e => setFormData(f => ({ ...f, respectFrequencyForDeadlines: e.target.checked }))}
+                        className="text-violet-600"
+                      />
+                      <span className="text-sm text-gray-700 dark:text-gray-200">
+                        Respect work frequency even for urgent deadlines
+                      </span>
+                    </label>
+                    <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 ml-6">
+                      When unchecked, urgent tasks will use daily scheduling regardless of frequency preference
+                    </div>
+                  </div>
+
+                  {/* Minimum Work Block (only for deadline tasks) */}
+                  {formData.deadlineType !== 'none' && (
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
+                        Minimum session length
+                      </label>
+                      <select
+                        value={formData.minWorkBlock}
+                        onChange={e => setFormData(f => ({ ...f, minWorkBlock: parseInt(e.target.value) }))}
+                        className="w-full px-2 py-1 border border-white/30 dark:border-white/20 rounded text-sm bg-white/70 dark:bg-black/20 dark:text-white"
+                      >
+                        <option value={15}>15 minutes</option>
+                        <option value={30}>30 minutes</option>
+                        <option value={45}>45 minutes</option>
+                        <option value={60}>1 hour</option>
+                        <option value={90}>1.5 hours</option>
+                      </select>
+                      <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                        Shorter sessions will be avoided or combined
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Maximum Session Length (only for no-deadline tasks) */}
+                  {formData.deadlineType === 'none' && (
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
+                        Maximum session length
+                      </label>
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="number"
+                          value={formData.maxSessionLength}
+                          onChange={e => setFormData(f => ({ ...f, maxSessionLength: Math.max(0.5, Math.min(8, parseFloat(e.target.value) || 2)) }))}
+                          min="0.5"
+                          max="8"
+                          step="0.5"
+                          className="w-20 px-3 py-2 border border-white/30 dark:border-white/20 rounded-xl text-sm bg-white/70 dark:bg-black/20 dark:text-white focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                        />
+                        <span className="text-sm text-gray-700 dark:text-gray-200">hours</span>
+                      </div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                        Maximum length for each study session (0.5-8 hours)
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Preferred Time Slots (for no-deadline tasks) */}
+                  {formData.deadlineType === 'none' && (
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
+                        Preferred time slots
+                      </label>
+                      <div className="flex gap-2">
+                        {['morning', 'afternoon', 'evening'].map(timeSlot => (
+                          <label key={timeSlot} className="flex items-center gap-1">
+                            <input
+                              type="checkbox"
+                              checked={formData.preferredTimeSlots.includes(timeSlot as any)}
+                              onChange={e => {
+                                const timeSlots = formData.preferredTimeSlots;
+                                if (e.target.checked) {
+                                  setFormData(f => ({ ...f, preferredTimeSlots: [...timeSlots, timeSlot as any] }));
+                                } else {
+                                  setFormData(f => ({ ...f, preferredTimeSlots: timeSlots.filter(t => t !== timeSlot) }));
+                                }
+                              }}
+                              className="text-violet-600"
+                            />
+                            <span className="capitalize text-xs text-gray-700 dark:text-gray-300">{timeSlot}</span>
+                          </label>
+                        ))}
+                      </div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                        For flexible tasks, prefer these time periods
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
           </div>
-
-          {/* Minimum Work Block (only for deadline tasks) */}
-          {formData.deadlineType !== 'none' && (
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
-                Minimum session length
-              </label>
-              <select
-                value={formData.minWorkBlock}
-                onChange={e => setFormData(f => ({ ...f, minWorkBlock: parseInt(e.target.value) }))}
-                className="w-full px-2 py-1 border border-white/30 dark:border-white/20 rounded text-sm bg-white/70 dark:bg-black/20 dark:text-white"
-              >
-                <option value={15}>15 minutes</option>
-                <option value={30}>30 minutes</option>
-                <option value={45}>45 minutes</option>
-                <option value={60}>1 hour</option>
-                <option value={90}>1.5 hours</option>
-              </select>
-              <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                Shorter sessions will be avoided or combined
-              </div>
-            </div>
-          )}
-
-          {/* Maximum Session Length (only for no-deadline tasks) */}
-          {formData.deadlineType === 'none' && (
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
-                Maximum session length
-              </label>
-              <div className="flex items-center gap-2">
-                <input
-                  type="number"
-                  value={formData.maxSessionLength}
-                  onChange={e => setFormData(f => ({ ...f, maxSessionLength: Math.max(0.5, Math.min(8, parseFloat(e.target.value) || 2)) }))}
-                  min="0.5"
-                  max="8"
-                  step="0.5"
-                  className="w-20 px-3 py-2 border border-white/30 dark:border-white/20 rounded-xl text-sm bg-white/70 dark:bg-black/20 dark:text-white focus:ring-2 focus:ring-violet-500 focus:border-transparent"
-                />
-                <span className="text-sm text-gray-700 dark:text-gray-200">hours</span>
-              </div>
-              <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                Maximum length for each study session (0.5-8 hours)
-              </div>
-            </div>
-          )}
-
-          {/* Preferred Time Slots (for no-deadline tasks) */}
-          {formData.deadlineType === 'none' && (
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
-                Preferred time slots
-              </label>
-              <div className="flex gap-2">
-                {['morning', 'afternoon', 'evening'].map(timeSlot => (
-                  <label key={timeSlot} className="flex items-center gap-1">
-                    <input
-                      type="checkbox"
-                      checked={formData.preferredTimeSlots.includes(timeSlot as any)}
-                      onChange={e => {
-                        const timeSlots = formData.preferredTimeSlots;
-                        if (e.target.checked) {
-                          setFormData(f => ({ ...f, preferredTimeSlots: [...timeSlots, timeSlot as any] }));
-                        } else {
-                          setFormData(f => ({ ...f, preferredTimeSlots: timeSlots.filter(t => t !== timeSlot) }));
-                        }
-                      }}
-                      className="text-violet-600"
-                    />
-                    <span className="capitalize text-xs text-gray-700 dark:text-gray-300">{timeSlot}</span>
-                  </label>
-                ))}
-              </div>
-              <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                For flexible tasks, prefer these time periods
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    )}
-  </div>
-)}
 
           {/* Validation Feedback */}
           {!isFormValid && showValidationErrors && (

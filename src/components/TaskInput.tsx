@@ -118,6 +118,7 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
     minWorkBlock: 30, // Default 30 minutes (only for deadline tasks)
     maxSessionLength: 2, // Default 2 hours for no-deadline tasks
     isOneTimeTask: false, // New field for one-time tasks
+    startDate: new Date().toISOString().split('T')[0], // New: start date defaults to today
   });
   const [showMoreOptions, setShowMoreOptions] = useState(false);
   const [showTimePresets, setShowTimePresets] = useState(false);
@@ -224,11 +225,12 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
       estimatedHours: convertToDecimalHours(formData.estimatedHours, formData.estimatedMinutes),
       targetFrequency: formData.targetFrequency,
       deadlineType: formData.deadlineType,
-      minWorkBlock: formData.minWorkBlock
+      minWorkBlock: formData.minWorkBlock,
+      startDate: formData.startDate,
     };
     
     return checkFrequencyDeadlineConflict(taskForCheck, userSettings);
-  }, [formData.deadline, formData.estimatedHours, formData.estimatedMinutes, formData.targetFrequency, formData.deadlineType, formData.minWorkBlock, userSettings]);
+  }, [formData.deadline, formData.estimatedHours, formData.estimatedMinutes, formData.targetFrequency, formData.deadlineType, formData.minWorkBlock, formData.startDate, userSettings]);
 
   // Enhanced validation with better error messages
   const isTitleValid = formData.title.trim().length > 0;
@@ -236,6 +238,7 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
   // Deadline is always optional now
   const isDeadlineValid = true; // Always valid since deadline is optional
   const isDeadlineNotPast = formData.deadline ? formData.deadline >= today : true;
+  const isStartDateNotPast = formData.startDate ? formData.startDate >= today : true;
   const totalTime = convertToDecimalHours(formData.estimatedHours, formData.estimatedMinutes);
   const isEstimatedValid = totalTime > 0;
   const isEstimatedReasonable = totalTime <= 24; // Max 24 hours per task
@@ -244,7 +247,7 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
 
   const isOneSittingTooLong = formData.isOneTimeTask && totalTime > userSettings.dailyAvailableHours;
   const isFormValid = isTitleValid && isTitleLengthValid && isDeadlineValid && isDeadlineNotPast &&
-                     isEstimatedValid && isEstimatedReasonable && isImpactValid && isCustomCategoryValid;
+                     isEstimatedValid && isEstimatedReasonable && isImpactValid && isCustomCategoryValid && isStartDateNotPast;
 
   // Enhanced validation messages
   const getValidationErrors = () => {
@@ -272,6 +275,10 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
     
     if (showCustomCategory && !isCustomCategoryValid) {
       errors.push('Custom category must be between 1-50 characters');
+    }
+    
+    if (!isStartDateNotPast) {
+      errors.push('Start date cannot be in the past');
     }
     
     return errors;
@@ -326,7 +333,9 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
       respectFrequencyForDeadlines: formData.respectFrequencyForDeadlines,
       preferredTimeSlots: formData.preferredTimeSlots,
       minWorkBlock: formData.minWorkBlock,
+      maxSessionLength: formData.deadlineType === 'none' ? formData.maxSessionLength : undefined,
       isOneTimeTask: formData.isOneTimeTask,
+      startDate: formData.startDate || today,
     });
     setFormData({
       title: '',
@@ -344,7 +353,9 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
       respectFrequencyForDeadlines: true,
       preferredTimeSlots: [],
       minWorkBlock: 30,
+      maxSessionLength: 2,
       isOneTimeTask: false,
+      startDate: today,
     });
     setShowEstimationHelper(false);
     setShowMoreOptions(false);
@@ -499,6 +510,22 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
                     </button>
                   </div>
 
+                  {/* Start Date Selection */}
+                  <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">Start date</label>
+                    <input
+                      type="date"
+                      min={today}
+                      value={formData.startDate}
+                      onChange={e => setFormData(f => ({ ...f, startDate: e.target.value || today }))}
+                      className={`w-full px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent border-gray-300 bg-white dark:bg-gray-800 dark:text-white ${!isStartDateNotPast && formData.startDate ? 'border-red-500 focus:ring-red-500' : ''}`}
+                    />
+                    {!isStartDateNotPast && formData.startDate && (
+                      <div className="text-red-600 text-xs mt-1">Start date cannot be in the past. Please select today or a future date.</div>
+                    )}
+                    <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">Default is today. Sessions will not be scheduled before this date.</div>
+                  </div>
+
                   {/* Deadline Type Selection */}
                   <div className="space-y-2 mb-4">
                     <label className="flex items-center gap-3 p-2 border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-white dark:hover:bg-gray-700 cursor-pointer">
@@ -604,19 +631,22 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
                           </div>
                         </div>
 
+                        {/* Maximum session length for no-deadline tasks */}
                         <div>
-                          <label className="block text-xs font-medium text-gray-700 dark:text-gray-200 mb-1">Minimum session</label>
-                          <select
-                            value={formData.minWorkBlock}
-                            onChange={e => setFormData(f => ({ ...f, minWorkBlock: parseInt(e.target.value) }))}
-                            className="w-full px-2 py-1 border rounded text-sm bg-white dark:bg-gray-800 dark:text-white"
-                          >
-                            <option value={15}>15 minutes</option>
-                            <option value={30}>30 minutes</option>
-                            <option value={45}>45 minutes</option>
-                            <option value={60}>1 hour</option>
-                            <option value={90}>1.5 hours</option>
-                          </select>
+                          <label className="block text-xs font-medium text-gray-700 dark:text-gray-200 mb-1">Maximum session length</label>
+                          <div className="flex items-center gap-2">
+                            <input
+                              type="number"
+                              min={0.5}
+                              max={8}
+                              step={0.5}
+                              value={formData.maxSessionLength}
+                              onChange={e => setFormData(f => ({ ...f, maxSessionLength: Math.max(0.5, Math.min(8, parseFloat(e.target.value) || 2)) }))}
+                              className="w-24 px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent border-gray-300 bg-white dark:bg-gray-800 dark:text-white"
+                            />
+                            <span className="text-xs text-gray-600 dark:text-gray-400">hours</span>
+                          </div>
+                          <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">Only applies to tasks without deadlines.</div>
                         </div>
                       </>
                     )}
@@ -892,7 +922,9 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, onCancel, userSettings
                 targetFrequency: 'weekly',
                 preferredTimeSlots: [],
                 minWorkBlock: 30,
+                maxSessionLength: 2,
                 isOneTimeTask: false,
+                startDate: today,
               });
               setShowEstimationHelper(false);
               setShowMoreOptions(false);
