@@ -66,6 +66,8 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onUpdateTask, onDeleteTask, 
   
   // Check if deadline is in the past
   const isDeadlinePast = editFormData.deadline ? editFormData.deadline < today : false;
+  // Check if start date is in the past
+  const isStartDateNotPast = editFormData.startDate ? editFormData.startDate >= today : true;
 
   // Check for deadline conflict with frequency preference
   const deadlineConflict = useMemo(() => {
@@ -79,11 +81,12 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onUpdateTask, onDeleteTask, 
       estimatedHours: totalHours,
       targetFrequency: editFormData.targetFrequency,
       deadlineType: editFormData.deadlineType,
-      minWorkBlock: editFormData.minWorkBlock
+      minWorkBlock: editFormData.minWorkBlock,
+      startDate: editFormData.startDate
     };
     
     return checkFrequencyDeadlineConflict(taskForCheck, userSettings);
-  }, [editFormData.deadline, editFormData.estimatedHours, editFormData.estimatedMinutes, editFormData.targetFrequency, editFormData.deadlineType, editFormData.minWorkBlock, userSettings]);
+  }, [editFormData.deadline, editFormData.estimatedHours, editFormData.estimatedMinutes, editFormData.targetFrequency, editFormData.deadlineType, editFormData.minWorkBlock, editFormData.startDate, userSettings]);
 
   const getUrgencyColor = (deadline: string): string => {
     const now = new Date();
@@ -148,6 +151,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onUpdateTask, onDeleteTask, 
       minWorkBlock: task.minWorkBlock || 30,
       maxSessionLength: task.maxSessionLength || 2,
       isOneTimeTask: task.isOneTimeTask || false,
+      startDate: task.startDate || today,
     });
     setShowAdvancedOptions(false);
   };
@@ -159,6 +163,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onUpdateTask, onDeleteTask, 
     if (totalHours <= 0) return false;
     if (!editFormData.impact) return false;
     if (editFormData.deadline && editFormData.deadline < today) return false;
+    if (editFormData.startDate && editFormData.startDate < today) return false;
     if (editFormData.category === 'Custom...' && !editFormData.customCategory?.trim()) return false;
     return true;
   }, [editFormData, today]);
@@ -183,6 +188,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onUpdateTask, onDeleteTask, 
         maxSessionLength: editFormData.maxSessionLength,
         isOneTimeTask: editFormData.isOneTimeTask,
         schedulingPreference: editFormData.schedulingPreference,
+        startDate: editFormData.startDate || today,
       });
       setEditingTaskId(null);
       setEditFormData({});
@@ -444,6 +450,21 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onUpdateTask, onDeleteTask, 
                             </button>
                           </div>
 
+                          {/* Start Date Selection */}
+                          <div className="mb-4">
+                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">Start date</label>
+                            <input
+                              type="date"
+                              min={today}
+                              value={editFormData.startDate || ''}
+                              onChange={(e) => setEditFormData({ ...editFormData, startDate: e.target.value || today })}
+                              className={`w-full px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent border-gray-300 bg-white dark:bg-gray-800 dark:text-white ${!isStartDateNotPast && editFormData.startDate ? 'border-red-500 focus:ring-red-500' : ''}`}
+                            />
+                            {!isStartDateNotPast && editFormData.startDate && (
+                              <div className="text-red-600 text-xs mt-1">Start date cannot be in the past. Please select today or a future date.</div>
+                            )}
+                            <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">Default is today. Sessions will not be scheduled before this date.</div>
+                          </div>
 
                           {/* Deadline Type Selection */}
                           <div className="space-y-2 mb-4">
@@ -581,6 +602,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onUpdateTask, onDeleteTask, 
                         {((editFormData.estimatedHours || 0) + ((editFormData.estimatedMinutes || 0) / 60)) <= 0 && <div> Estimated time must be greater than 0</div>}
                         {!editFormData.impact && <div> Priority level is required</div>}
                         {editFormData.deadline && editFormData.deadline < today && <div> Deadline cannot be in the past</div>}
+                        {editFormData.startDate && editFormData.startDate < today && <div> Start date cannot be in the past</div>}
                         {editFormData.category === 'Custom...' && !editFormData.customCategory?.trim() && <div> Custom category is required</div>}
                       </div>
                     )}
