@@ -2606,9 +2606,9 @@ function App() {
                                         </h4>
                                         <div className="grid grid-cols-3 gap-2">
                                             {[
-                                                { amount: '50', emoji: '', desc: 'Coffee' },
-                                                { amount: '100', emoji: '', desc: 'Pizza' },
-                                                { amount: '200', emoji: '', desc: 'Party' }
+                                                { amount: '50', emoji: '☕', desc: 'Coffee' },
+                                                { amount: '100', emoji: '🍕', desc: 'Pizza' },
+                                                { amount: '200', emoji: '🎉', desc: 'Party' }
                                             ].map((item, index) => (
                                                 <div
                                                     key={index}
@@ -2634,15 +2634,15 @@ function App() {
                                         </h4>
                                         <div className="space-y-1 text-xs text-gray-600 dark:text-gray-400">
                                             <div className="flex items-center space-x-2">
-                                                <span className="text-green-500"></span>
+                                                <span className="text-green-500">✅</span>
                                                 <span>New features and improvements</span>
                                             </div>
                                             <div className="flex items-center space-x-2">
-                                                <span className="text-green-500"></span>
+                                                <span className="text-green-500">✅</span>
                                                 <span>Keep TimePilot free for everyone</span>
                                             </div>
                                             <div className="flex items-center space-x-2">
-                                                <span className="text-green-500"></span>
+                                                <span className="text-green-500">✅</span>
                                                 <span>Better performance and reliability</span>
                                             </div>
                                         </div>
