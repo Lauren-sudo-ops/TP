@@ -22,7 +22,7 @@ export function assessAddTaskFeasibility(
   existingStudyPlans: StudyPlan[],
   precomputedPlans?: StudyPlan[]
 ): AddTaskFeasibility {
-  const plansToUse = precomputedPlans || generateNewStudyPlan(updatedTasks, settings, fixedCommitments, existingStudyPlans).plans;
+  const plansToUse = precomputedPlans || generateNewStudyPlan(updatedTasks, settings, fixedCommitments, existingStudyPlans, { preserveManualReschedules: true }).plans;
 
   // Compute scheduled hours for the new task, excluding skipped sessions
   const scheduledHoursMap: Record<string, number> = {};
